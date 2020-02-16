@@ -1,6 +1,6 @@
 [package]
 name = "linux_modules"
-version = "0.1.1-alpha.0"
+version = "0.1.1"
 authors = ["Diana"]
 edition = "2018"
 #
