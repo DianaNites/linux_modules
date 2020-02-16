@@ -3,6 +3,21 @@ name = "linux_modules"
 version = "0.1.0"
 authors = ["Diana"]
 edition = "2018"
+#
+description = "Tool To Manage Linux Kernel Modules"
+documentation = "https://docs.rs/linux_modules"
+repository = "https://github.com/DianaNites/linux_modules"
+readme = "README.md"
+keywords = [
+    "linux",
+    "kernel",
+    "module",
+]
+categories = [
+    "os::unix-apis",
+    "command-line-utilities"
+]
+license = "MIT OR Apache-2.0"
 
 [dependencies]
 structopt = "0.3.9"
