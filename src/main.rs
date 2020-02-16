@@ -98,9 +98,9 @@ fn list_modules() {
 fn add_module(name: &Path, force: bool) {
     let m = get_module(name);
     if force {
-        unsafe { m.force_load(()) };
+        unsafe { m.force_load("") };
     } else {
-        m.load(());
+        m.load("");
     }
 }
 
