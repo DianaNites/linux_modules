@@ -29,11 +29,6 @@ linapi = "0.2.4"
 maintenance = { status = "experimental" }
 
 [[package.metadata.release.pre-release-replacements]]
-file = "README.md"
-search = "linux_modules = .*"
-replace = "{{crate_name}} = \"{{version}}\""
-
-[[package.metadata.release.pre-release-replacements]]
 file = "CHANGELOG.md"
 search = "Unreleased"
 replace="{{version}}"
