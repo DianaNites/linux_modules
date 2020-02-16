@@ -73,6 +73,9 @@ fn get_module(name: &Path) -> ModuleFile {
 
 fn list_modules() {
     let mut table = Table::new();
+    if let None = table.get_table_width() {
+        table.set_table_width(80);
+    }
     table.set_content_arrangement(ContentArrangement::Dynamic);
     table.set_header(vec!["Module", "Size (Bytes)", "References", "Used By"]);
 
@@ -111,6 +114,9 @@ fn remove_module(name: &str, force: bool) {
 
 fn info_module(name: &Path) {
     let mut table = Table::new();
+    if let None = table.get_table_width() {
+        table.set_table_width(80);
+    }
     table.set_content_arrangement(ContentArrangement::Dynamic);
     //
     let m = get_module(name);
