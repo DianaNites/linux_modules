@@ -1,6 +1,6 @@
 use anyhow::Result;
 use comfy_table::{ContentArrangement, Table};
-use linapi::modules::{force_unload_module, get_loaded_modules, unload_module, ModuleFile};
+use linapi::modules::{LoadedModule, ModuleFile};
 use std::path::{Path, PathBuf};
 use structopt::{clap::AppSettings, StructOpt};
 
@@ -79,7 +79,7 @@ fn list_modules() {
     table.set_content_arrangement(ContentArrangement::Dynamic);
     table.set_header(vec!["Module", "Size (Bytes)", "References", "Used By"]);
 
-    for m in get_loaded_modules() {
+    for m in LoadedModule::from_loaded() {
         table.add_row(vec![
             m.name(),
             &m.size().to_string(),
@@ -105,10 +105,11 @@ fn add_module(name: &Path, force: bool) {
 }
 
 fn remove_module(name: &str, force: bool) {
+    let m = LoadedModule::from_name(name);
     if force {
-        unsafe { force_unload_module(name) };
+        unsafe { m.force_unload() };
     } else {
-        unload_module(name);
+        m.unload();
     }
 }
 
