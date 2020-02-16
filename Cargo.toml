@@ -9,3 +9,39 @@ structopt = "0.3.9"
 anyhow = "1.0.26"
 comfy-table = "0.0.7"
 linapi = "0.2.3"
+
+[badges]
+maintenance = { status = "experimental" }
+
+[[package.metadata.release.pre-release-replacements]]
+file = "README.md"
+search = "linux_modules = .*"
+replace = "{{crate_name}} = \"{{version}}\""
+
+[[package.metadata.release.pre-release-replacements]]
+file = "CHANGELOG.md"
+search = "Unreleased"
+replace="{{version}}"
+
+[[package.metadata.release.pre-release-replacements]]
+file = "CHANGELOG.md"
+search = "\\.\\.\\.HEAD"
+replace="...{{tag_name}}"
+exactly = 1
+
+[[package.metadata.release.pre-release-replacements]]
+file = "CHANGELOG.md"
+search = "ReleaseDate"
+replace="{{date}}"
+
+[[package.metadata.release.pre-release-replacements]]
+file="CHANGELOG.md"
+search="<!-- next-header -->"
+replace="<!-- next-header -->\n\n## [Unreleased] - ReleaseDate"
+exactly=1
+
+[[package.metadata.release.pre-release-replacements]]
+file="CHANGELOG.md"
+search="<!-- next-url -->"
+replace="<!-- next-url -->\n[Unreleased]: https://github.com/DianaNites/{{crate_name}}/compare/{{tag_name}}...HEAD"
+exactly=1
