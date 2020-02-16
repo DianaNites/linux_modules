@@ -69,3 +69,29 @@ $ linux_modules info loop
 ```
 
 Note that the table size will adapt to your terminal.
+
+## Changelog
+
+Please see [CHANGELOG](CHANGELOG.md) for version history
+
+## Contributing
+
+This crate is not looking for contributors at this time.
+
+However, feel free to ask questions and request bindings using github issues,
+or suggest/discuss API improvements.
+
+Unless you explicitly state otherwise, any contribution intentionally submitted
+for inclusion in the work by you, as defined in the Apache-2.0 license, shall be
+dual licensed as below, without any additional terms or conditions.
+
+## License
+
+Licensed under either of
+
+- Apache License, Version 2.0
+   ([LICENSE-APACHE](LICENSE-APACHE) or <http://www.apache.org/licenses/LICENSE-2.0)>
+- MIT license
+   ([LICENSE-MIT](LICENSE-MIT) or <http://opensource.org/licenses/MIT)>
+
+at your option.
