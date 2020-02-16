@@ -8,6 +8,4 @@ edition = "2018"
 structopt = "0.3.9"
 anyhow = "1.0.26"
 comfy-table = "0.0.7"
-
-[dependencies.linapi]
-version = "0.2.3"
+linapi = "0.2.3"
