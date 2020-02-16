@@ -1,6 +1,4 @@
-use anyhow::{anyhow, Result};
-use linapi::sysfs::modules::get_system_modules;
-use prettytable::{cell, row, Cell, Row, Table};
+use anyhow::Result;
 use std::path::{Path, PathBuf};
 use structopt::{clap::AppSettings, StructOpt};
 
