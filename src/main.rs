@@ -159,7 +159,21 @@ fn info_module(name: &Path) {
         p_table.add_row(vec![p.name, p.description, p.type_]);
     }
     table.add_row(vec!["Parameters", &p_table.to_string()]);
-    // TODO: Module Signature Info.
+    //
+    // let mut s_table = Table::new();
+    // s_table.set_header(vec!["Signer", "ID", "Key", "Hash Algorithm",
+    // "Signature"]); s_table.set_table_width(
+    //     table.get_table_width().unwrap()
+    //         - table.column_iter().next().unwrap().get_max_content_width()
+    //         // 6 Is how many characters, including padding, the first column
+    // borders take.         // Plus 1 for our own padding, for a total of 7.
+    //         - 7,
+    // );
+    // s_table.set_content_arrangement(ContentArrangement::Dynamic);
+    // let _s = dbg!(m.signature().unwrap());
+    // s_table.add_row(vec!["Test"]);
+
+    table.add_row(vec!["Signature", &m.has_signature().to_string()]);
 
     //
     println!("{}", table);
