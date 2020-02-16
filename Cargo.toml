@@ -10,5 +10,4 @@ anyhow = "1.0.26"
 comfy-table = "0.0.7"
 
 [dependencies.linapi]
-version = "0.1.2-alpha.0"
-path = "../linapi"
+version = "0.2.3"
