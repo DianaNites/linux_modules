@@ -11,7 +11,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Support for compressed modules
+
+## [0.1.0] - 2020-02-16
+
+### Added
+
 - CLI Interface for adding, removing listing, and getting information on modules.
 
 <!-- next-url -->
-[Unreleased]: https://github.com/DianaNites/linapi/compare/v0.2.3...HEAD
+[Unreleased]: https://github.com/DianaNites/linux_modules/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/DianaNites/linux_modules/releases/tag/v0.1.0
