@@ -156,8 +156,8 @@ fn info_module(name: &Path) {
             - 7,
     );
     p_table.set_content_arrangement(ContentArrangement::Dynamic);
-    for p in info.parameters {
-        p_table.add_row(vec![p.name, p.description, p.type_]);
+    for p in &info.parameters {
+        p_table.add_row(vec![&p.name, &p.description, &p.type_]);
     }
     table.add_row(vec!["Parameters", &p_table.to_string()]);
     //

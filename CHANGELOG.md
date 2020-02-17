@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] - ReleaseDate
 
+### Changed
+
+- Proper error messages instead of rust panics
+
 ## [0.1.2] - 2020-02-16
 
 ### Changed
