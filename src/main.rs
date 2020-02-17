@@ -63,11 +63,12 @@ struct Args {
     cmd: Commands,
 }
 
-fn get_module(name: &Path) -> ModuleFile {
+fn get_module(name: &Path) -> Result<ModuleFile> {
     if name.is_absolute() {
-        ModuleFile::from_path(name)
+        Ok(ModuleFile::from_path(name)?)
     } else {
-        ModuleFile::from_name(name.to_str().unwrap())
+        // This unwrap should be okay, `name` always valid utf-8?
+        Ok(ModuleFile::from_name(name.to_str().unwrap())?)
     }
 }
 
@@ -95,13 +96,14 @@ fn list_modules() {
     println!("{}", table);
 }
 
-fn add_module(name: &Path, force: bool) {
-    let m = get_module(name);
+fn add_module(name: &Path, force: bool) -> Result<()> {
+    let m = get_module(name)?;
     if force {
-        unsafe { m.force_load("") };
+        unsafe { m.force_load("")? };
     } else {
-        m.load("");
+        m.load("")?;
     }
+    Ok(())
 }
 
 fn remove_module(name: &str, force: bool) {
@@ -113,14 +115,14 @@ fn remove_module(name: &str, force: bool) {
     }
 }
 
-fn info_module(name: &Path) {
+fn info_module(name: &Path) -> Result<()> {
     let mut table = Table::new();
     if let None = table.get_table_width() {
         table.set_table_width(80);
     }
     table.set_content_arrangement(ContentArrangement::Dynamic);
     //
-    let m = get_module(name);
+    let m = get_module(name)?;
     let info = m.info();
     //
     table.set_header(vec![
@@ -178,6 +180,8 @@ fn info_module(name: &Path) {
 
     //
     println!("{}", table);
+    //
+    Ok(())
 }
 
 fn main() -> Result<()> {
@@ -185,9 +189,9 @@ fn main() -> Result<()> {
     //
     match args.cmd {
         Commands::List { .. } => list_modules(),
-        Commands::Insert { module, force } => add_module(&module, force),
+        Commands::Insert { module, force } => add_module(&module, force)?,
         Commands::Remove { name, force } => remove_module(&name, force),
-        Commands::Info { module } => info_module(&module),
+        Commands::Info { module } => info_module(&module)?,
     }
     //
     Ok(())
