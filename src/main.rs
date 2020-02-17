@@ -79,7 +79,7 @@ fn list_modules() {
     table.set_content_arrangement(ContentArrangement::Dynamic);
     table.set_header(vec!["Module", "Size (Bytes)", "References", "Used By"]);
 
-    for m in LoadedModule::from_loaded() {
+    for m in LoadedModule::get_loaded() {
         table.add_row(vec![
             m.name(),
             &m.size().to_string(),
