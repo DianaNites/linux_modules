@@ -9,6 +9,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] - ReleaseDate
 
+### Added
+
+- (TODO) `uname` command flag, so you can get information about modules from
+  other kernel versions. This can happen if you upgrade your kernel,
+  causing current module files to be removed. Arch Linux does this.
+
+### Fixed
+
+- `linux_modules info <module>` now correctly identifies signatures
+
 ### Changed
 
 - Proper error messages instead of rust panics
