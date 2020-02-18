@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- (TODO) `uname` command flag, so you can get information about modules from
+- `uname` command flag, so you can get information about modules from
   other kernel versions. This can happen if you upgrade your kernel,
   causing current module files to be removed. Arch Linux does this.
 

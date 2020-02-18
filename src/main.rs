@@ -45,6 +45,13 @@ enum Commands {
 
     /// Get information on a kernel module
     Info {
+        /// Uname to use instead of the current one.
+        ///
+        /// This may be required if want information on other kernel
+        /// modules and don't want to specify the full path.
+        #[structopt(long, short)]
+        uname: Option<String>,
+
         /// Name of the module, or a path to one.
         module: PathBuf,
     },
@@ -63,12 +70,19 @@ struct Args {
     cmd: Commands,
 }
 
-fn get_module(name: &Path) -> Result<ModuleFile> {
+fn get_module(name: &Path, uname: Option<&str>) -> Result<ModuleFile> {
     if name.is_absolute() {
         Ok(ModuleFile::from_path(name)?)
     } else {
         // This unwrap should be okay, `name` always valid utf-8?
-        Ok(ModuleFile::from_name(name.to_str().unwrap())?)
+        if let Some(uname) = uname {
+            Ok(ModuleFile::from_name_with_uname(
+                name.to_str().unwrap(),
+                uname,
+            )?)
+        } else {
+            Ok(ModuleFile::from_name(name.to_str().unwrap())?)
+        }
     }
 }
 
@@ -97,7 +111,7 @@ fn list_modules() {
 }
 
 fn add_module(name: &Path, force: bool) -> Result<()> {
-    let m = get_module(name)?;
+    let m = get_module(name, None)?;
     if force {
         unsafe { m.force_load("")? };
     } else {
@@ -115,14 +129,14 @@ fn remove_module(name: &str, force: bool) {
     }
 }
 
-fn info_module(name: &Path) -> Result<()> {
+fn info_module(name: &Path, uname: Option<&str>) -> Result<()> {
     let mut table = Table::new();
     if let None = table.get_table_width() {
         table.set_table_width(80);
     }
     table.set_content_arrangement(ContentArrangement::Dynamic);
     //
-    let m = get_module(name)?;
+    let m = get_module(name, uname)?;
     let info = m.info();
     //
     table.set_header(vec![
@@ -199,7 +213,7 @@ fn main() -> Result<()> {
         Commands::List { .. } => list_modules(),
         Commands::Insert { module, force } => add_module(&module, force)?,
         Commands::Remove { name, force } => remove_module(&name, force),
-        Commands::Info { module } => info_module(&module)?,
+        Commands::Info { module, uname } => info_module(&module, uname.as_deref())?,
     }
     //
     Ok(())
