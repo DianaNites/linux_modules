@@ -88,7 +88,7 @@ fn get_module(name: &Path, uname: Option<&str>) -> Result<ModuleFile> {
 
 fn list_modules() {
     let mut table = Table::new();
-    if let None = table.get_table_width() {
+    if table.get_table_width().is_none() {
         table.set_table_width(80);
     }
     table.set_content_arrangement(ContentArrangement::Dynamic);
@@ -131,7 +131,7 @@ fn remove_module(name: &str, force: bool) {
 
 fn info_module(name: &Path, uname: Option<&str>) -> Result<()> {
     let mut table = Table::new();
-    if let None = table.get_table_width() {
+    if table.get_table_width().is_none() {
         table.set_table_width(80);
     }
     table.set_content_arrangement(ContentArrangement::Dynamic);
