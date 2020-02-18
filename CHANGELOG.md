@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - `linux_modules info <module>` now correctly identifies signatures
+- `linux_modules info <module>` now works for modules without parameters
 
 ### Changed
 

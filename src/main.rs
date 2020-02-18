@@ -159,8 +159,13 @@ fn info_module(name: &Path) -> Result<()> {
     );
     p_table.set_content_arrangement(ContentArrangement::Dynamic);
     for p in &info.parameters {
-        p_table.add_row(vec![&p.name, &p.description, &p.type_]);
+        p_table.add_row(vec![
+            p.name.as_str(),
+            p.description.as_ref().map(|s| s.as_str()).unwrap_or("None"),
+            p.type_.as_str(),
+        ]);
     }
+    // FIXME: Looks weird if no parameters.
     table.add_row(vec!["Parameters", &p_table.to_string()]);
     //
     // let mut s_table = Table::new();
