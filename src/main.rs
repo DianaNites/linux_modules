@@ -86,7 +86,7 @@ fn get_module(name: &Path, uname: Option<&str>) -> Result<ModuleFile> {
     }
 }
 
-fn list_modules() {
+fn list_modules() -> Result<()> {
     let mut table = Table::new();
     if table.get_table_width().is_none() {
         table.set_table_width(80);
@@ -94,7 +94,7 @@ fn list_modules() {
     table.set_content_arrangement(ContentArrangement::Dynamic);
     table.set_header(vec!["Module", "Size (Bytes)", "References", "Used By"]);
 
-    for m in LoadedModule::get_loaded() {
+    for m in LoadedModule::get_loaded()? {
         table.add_row(vec![
             m.name(),
             &m.size().to_string(),
@@ -108,6 +108,7 @@ fn list_modules() {
     }
 
     println!("{}", table);
+    Ok(())
 }
 
 fn add_module(name: &Path, force: bool) -> Result<()> {
@@ -120,13 +121,14 @@ fn add_module(name: &Path, force: bool) -> Result<()> {
     Ok(())
 }
 
-fn remove_module(name: &str, force: bool) {
-    let m = LoadedModule::from_name(name);
+fn remove_module(name: &str, force: bool) -> Result<()> {
+    let m = LoadedModule::from_name(name)?;
     if force {
-        unsafe { m.force_unload() };
+        unsafe { m.force_unload()? };
     } else {
-        m.unload();
+        m.unload()?;
     }
+    Ok(())
 }
 
 fn info_module(name: &Path, uname: Option<&str>) -> Result<()> {
@@ -210,9 +212,9 @@ fn main() -> Result<()> {
     let args = Args::from_args();
     //
     match args.cmd {
-        Commands::List { .. } => list_modules(),
+        Commands::List { .. } => list_modules()?,
         Commands::Insert { module, force } => add_module(&module, force)?,
-        Commands::Remove { name, force } => remove_module(&name, force),
+        Commands::Remove { name, force } => remove_module(&name, force)?,
         Commands::Info { module, uname } => info_module(&module, uname.as_deref())?,
     }
     //
