@@ -307,7 +307,9 @@ checksum = "d515b1f41455adea1313a4a2ac8a8a477634fbae63cc6100e3aebb207ce61558"
 
 [[package]]
 name = "linapi"
-version = "0.3.5-alpha.0"
+version = "0.4.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4a86e1430c5ea160954468a31ed880edd6730818fe84fad32ce7326423b1bcea"
 dependencies = [
  "bitflags",
  "displaydoc",
