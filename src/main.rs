@@ -165,8 +165,11 @@ fn info_module(name: &Path) -> Result<()> {
             p.type_.as_str(),
         ]);
     }
-    // FIXME: Looks weird if no parameters.
-    table.add_row(vec!["Parameters", &p_table.to_string()]);
+    if info.parameters.is_empty() {
+        table.add_row(vec!["Parameters", "None"]);
+    } else {
+        table.add_row(vec!["Parameters", &p_table.to_string()]);
+    }
     //
     // let mut s_table = Table::new();
     // s_table.set_header(vec!["Signer", "ID", "Key", "Hash Algorithm",
