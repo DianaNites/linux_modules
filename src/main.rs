@@ -174,18 +174,16 @@ fn info_module(name: &Path, uname: Option<&str>) -> Result<()> {
             - 7,
     );
     p_table.set_content_arrangement(ContentArrangement::Dynamic);
-    let mut parameters = Vec::new();
-    for p in &info.parameters {
+    //
+    let mut parameters = info.parameters.clone();
+    parameters.sort_unstable_by(|a, b| a.name.cmp(&b.name));
+    for p in parameters {
         let desc = p
             .description
             .as_ref()
             .map(|s| s.replace("\t", "    "))
             .unwrap_or("None".into());
-        parameters.push(vec![p.name.clone(), desc, p.type_.clone()]);
-    }
-    parameters.sort_unstable_by(|a, b| a[0].cmp(&b[0]));
-    for p in parameters {
-        p_table.add_row(p);
+        p_table.add_row(vec![p.name.clone(), desc, p.type_.clone()]);
     }
     if info.parameters.is_empty() {
         table.add_row(vec!["Parameters", "None"]);
