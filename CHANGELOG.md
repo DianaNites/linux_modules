@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] - ReleaseDate
 
+### Fixed
+
+- Failure to get information on some xz compressed modules, such as `vivid`
+
 ## [0.1.3] - 2020-02-18
 
 ### Added
