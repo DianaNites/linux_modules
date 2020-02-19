@@ -175,11 +175,12 @@ fn info_module(name: &Path, uname: Option<&str>) -> Result<()> {
     );
     p_table.set_content_arrangement(ContentArrangement::Dynamic);
     for p in &info.parameters {
-        p_table.add_row(vec![
-            p.name.as_str(),
-            p.description.as_ref().map(|s| s.as_str()).unwrap_or("None"),
-            p.type_.as_str(),
-        ]);
+        let desc = p
+            .description
+            .as_ref()
+            .map(|s| s.replace("\t", "    "))
+            .unwrap_or("None".into());
+        p_table.add_row(vec![p.name.clone(), desc, p.type_.clone()]);
     }
     if info.parameters.is_empty() {
         table.add_row(vec!["Parameters", "None"]);
