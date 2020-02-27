@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] - ReleaseDate
 
+### Fixed
+
+- `linux_modules list` panicking
+
 ## [0.1.4] - 2020-02-19
 
 ### Fixed
