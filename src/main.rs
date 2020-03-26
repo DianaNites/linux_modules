@@ -103,7 +103,7 @@ fn list_modules() -> Result<()> {
     table.set_header(&["Module", "Size (Bytes)", "References", "Used By"]);
 
     for m in LoadedModule::get_loaded()? {
-        table.add_row(vec![
+        table.add_row(&[
             m.name(),
             &m.size().to_string(),
             &m.ref_count().unwrap().to_string(),
@@ -147,22 +147,22 @@ fn info_module(name: &Path, uname: Option<&str>) -> Result<()> {
     //
     table.set_header(&["File".into(), m.path().display().to_string()]);
 
-    table.add_row(vec!["Authors", &info.authors.join("\n")]);
-    table.add_row(vec!["License", &info.license]);
-    table.add_row(vec!["Description", &info.description]);
-    table.add_row(vec!["Version", &info.version]);
-    table.add_row(vec!["Firmware", &info.firmware.join("\n")]);
-    table.add_row(vec!["Alias", &info.alias.join("\n")]);
-    table.add_row(vec!["Dependencies", &info.dependencies.join("\n")]);
-    table.add_row(vec![
+    table.add_row(&["Authors", &info.authors.join("\n")]);
+    table.add_row(&["License", &info.license]);
+    table.add_row(&["Description", &info.description]);
+    table.add_row(&["Version", &info.version]);
+    table.add_row(&["Firmware", &info.firmware.join("\n")]);
+    table.add_row(&["Alias", &info.alias.join("\n")]);
+    table.add_row(&["Dependencies", &info.dependencies.join("\n")]);
+    table.add_row(&[
         "Soft Dependencies".into(),
         info.soft_dependencies.join("\n"),
     ]);
-    table.add_row(vec!["In Tree", &info.in_tree.to_string()]);
-    table.add_row(vec!["Retpoline", &info.retpoline.to_string()]);
-    table.add_row(vec!["Staging", &info.staging.to_string()]);
-    table.add_row(vec!["Version Magic", &info.version_magic]);
-    table.add_row(vec!["Source Checksum", &info.source_checksum]);
+    table.add_row(&["In Tree", &info.in_tree.to_string()]);
+    table.add_row(&["Retpoline", &info.retpoline.to_string()]);
+    table.add_row(&["Staging", &info.staging.to_string()]);
+    table.add_row(&["Version Magic", &info.version_magic]);
+    table.add_row(&["Source Checksum", &info.source_checksum]);
     //
     let mut p_table = create_table();
     p_table.set_header(&["Name", "Desc", "Type"]);
@@ -183,16 +183,16 @@ fn info_module(name: &Path, uname: Option<&str>) -> Result<()> {
             .as_ref()
             .map(|s| s.replace("\t", "    "))
             .unwrap_or("None".into());
-        p_table.add_row(vec![p.name.clone(), desc, p.type_.clone()]);
+        p_table.add_row(&[p.name.clone(), desc, p.type_.clone()]);
     }
     if info.parameters.is_empty() {
-        table.add_row(vec!["Parameters", "None"]);
+        table.add_row(&["Parameters", "None"]);
     } else {
-        table.add_row(vec!["Parameters", &p_table.to_string()]);
+        table.add_row(&["Parameters", &p_table.to_string()]);
     }
     //
     // let mut s_table = Table::new();
-    // s_table.set_header(vec!["Signer", "ID", "Key", "Hash Algorithm",
+    // s_table.set_header(&["Signer", "ID", "Key", "Hash Algorithm",
     // "Signature"]); s_table.set_table_width(
     //     table.get_table_width().unwrap()
     //         - table.column_iter().next().unwrap().get_max_content_width()
@@ -202,9 +202,9 @@ fn info_module(name: &Path, uname: Option<&str>) -> Result<()> {
     // );
     // s_table.set_content_arrangement(ContentArrangement::Dynamic);
     // let _s = dbg!(m.signature().unwrap());
-    // s_table.add_row(vec!["Test"]);
+    // s_table.add_row(&["Test"]);
 
-    table.add_row(vec!["Signature", &m.has_signature().to_string()]);
+    table.add_row(&["Signature", &m.has_signature().to_string()]);
 
     //
     println!("{}", table);
