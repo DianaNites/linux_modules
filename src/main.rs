@@ -145,11 +145,7 @@ fn info_module(name: &Path, uname: Option<&str>) -> Result<()> {
     let m = get_module(name, uname)?;
     let info = m.info();
     //
-    table.set_header(&[
-        //
-        "File".into(),
-        m.path().display().to_string(),
-    ]);
+    table.set_header(&["File".into(), m.path().display().to_string()]);
 
     table.add_row(vec!["Authors", &info.authors.join("\n")]);
     table.add_row(vec!["License", &info.license]);
