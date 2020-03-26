@@ -1,4 +1,4 @@
-use anyhow::Result;
+use anyhow::{Context, Result};
 use comfy_table::{modifiers::UTF8_ROUND_CORNERS, presets::UTF8_FULL, ContentArrangement, Table};
 use linapi::modules::{LoadedModule, ModuleFile};
 use std::path::{Path, PathBuf};
@@ -229,10 +229,17 @@ fn main() -> Result<()> {
     //
     if args.cmd.is_some() {
         match args.cmd.unwrap() {
-            Commands::List { .. } => list_modules()?,
-            Commands::Insert { module, force } => add_module(&module, force)?,
-            Commands::Remove { name, force } => remove_module(&name, force)?,
-            Commands::Info { module, uname } => info_module(&module, uname.as_deref())?,
+            Commands::List { .. } => {
+                list_modules().with_context(|| "Couldn't list running modules")?
+            }
+            Commands::Insert { module, force } => add_module(&module, force)
+                .with_context(|| format!("Couldn't add module {}", module.display()))?,
+            Commands::Remove { name, force } => remove_module(&name, force)
+                .with_context(|| format!("Couldn't remove module {}", name))?,
+            Commands::Info { module, uname } => info_module(&module, uname.as_deref())
+                .with_context(|| {
+                    format!("Couldn't get information on module {}", module.display())
+                })?,
         }
     } else {
         // Can't be `None`, guaranteed by clap requirements.
