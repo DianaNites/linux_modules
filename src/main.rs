@@ -168,7 +168,8 @@ fn info_module(name: &Path, uname: Option<&str>) -> Result<()> {
     p_table.set_header(&["Name", "Desc", "Type"]);
     p_table.set_table_width(
         table.get_table_width().unwrap()
-            - table.column_iter().next().unwrap().get_max_content_width()
+            // Get width of first column, we're second.
+            - table.get_column(0).unwrap().get_max_content_width()
             // 6 Is how many characters, including padding, the first column borders take.
             // Plus 2 for our own padding, for a total of 8.
             - 8,
