@@ -65,6 +65,7 @@ enum Commands {
         AppSettings::DisableVersion,
         AppSettings::SubcommandsNegateReqs,
         AppSettings::DisableHelpSubcommand,
+        AppSettings::ArgRequiredElseHelp,
     ]
 ))]
 struct Args {
