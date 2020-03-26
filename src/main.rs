@@ -92,7 +92,7 @@ fn list_modules() -> Result<()> {
         table.set_table_width(80);
     }
     table.set_content_arrangement(ContentArrangement::Dynamic);
-    table.set_header(vec!["Module", "Size (Bytes)", "References", "Used By"]);
+    table.set_header(&["Module", "Size (Bytes)", "References", "Used By"]);
 
     for m in LoadedModule::get_loaded()? {
         table.add_row(vec![
@@ -141,7 +141,7 @@ fn info_module(name: &Path, uname: Option<&str>) -> Result<()> {
     let m = get_module(name, uname)?;
     let info = m.info();
     //
-    table.set_header(vec![
+    table.set_header(&[
         //
         "File".into(),
         m.path().display().to_string(),
@@ -165,7 +165,7 @@ fn info_module(name: &Path, uname: Option<&str>) -> Result<()> {
     table.add_row(vec!["Source Checksum", &info.source_checksum]);
     //
     let mut p_table = Table::new();
-    p_table.set_header(vec!["Name", "Desc", "Type"]);
+    p_table.set_header(&["Name", "Desc", "Type"]);
     p_table.set_table_width(
         table.get_table_width().unwrap()
             - table.column_iter().next().unwrap().get_max_content_width()
