@@ -63,11 +63,20 @@ enum Commands {
         AppSettings::ColoredHelp,
         AppSettings::GlobalVersion,
         AppSettings::DisableVersion,
+        AppSettings::SubcommandsNegateReqs,
     ]
 ))]
 struct Args {
+    /// Module name to load.
+    #[structopt(hidden(true), required_unless("subcommand"))]
+    name: Option<PathBuf>,
+
+    /// Does nothing. For linux kernel support.
+    #[structopt(short, hidden(true), required_unless("subcommand"))]
+    quiet: bool,
+
     #[structopt(subcommand)]
-    cmd: Commands,
+    cmd: Option<Commands>,
 }
 
 fn create_table() -> Table {
@@ -212,14 +221,21 @@ fn info_module(name: &Path, uname: Option<&str>) -> Result<()> {
     Ok(())
 }
 
+#[quit::main]
 fn main() -> Result<()> {
-    let args = Args::from_args();
+    let args: Args = Args::from_args();
     //
-    match args.cmd {
-        Commands::List { .. } => list_modules()?,
-        Commands::Insert { module, force } => add_module(&module, force)?,
-        Commands::Remove { name, force } => remove_module(&name, force)?,
-        Commands::Info { module, uname } => info_module(&module, uname.as_deref())?,
+    if args.cmd.is_some() {
+        match args.cmd.unwrap() {
+            Commands::List { .. } => list_modules()?,
+            Commands::Insert { module, force } => add_module(&module, force)?,
+            Commands::Remove { name, force } => remove_module(&name, force)?,
+            Commands::Info { module, uname } => info_module(&module, uname.as_deref())?,
+        }
+    } else {
+        // Can't be `None`, guaranteed by clap requirements.
+        let _ = add_module(&args.name.unwrap(), false);
+        quit::with_code(1);
     }
     //
     Ok(())

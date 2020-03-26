@@ -308,6 +308,7 @@ dependencies = [
  "anyhow",
  "comfy-table",
  "linapi",
+ "quit",
  "structopt",
 ]
 
@@ -476,6 +477,25 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "eef52fac62d0ea7b9b4dc7da092aa64ea7ec3d90af6679422d3d7e0e14b6ee15"
 dependencies = [
  "bitflags",
+]
+
+[[package]]
+name = "quit"
+version = "1.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7258b1b127072b3c9325de01b5f016863c0caacff89715b57cd17caba3ee0e49"
+dependencies = [
+ "quit_macros",
+]
+
+[[package]]
+name = "quit_macros"
+version = "1.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1c047b0d9fff53f1f826a00ec855f74fc58583f611a3bb3b2f78b03c099a1637"
+dependencies = [
+ "quote",
+ "syn",
 ]
 
 [[package]]
