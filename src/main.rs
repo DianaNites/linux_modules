@@ -182,7 +182,7 @@ fn info_module(name: &Path, uname: Option<&str>) -> Result<()> {
             .description
             .as_ref()
             .map(|s| s.replace("\t", "    "))
-            .unwrap_or("None".into());
+            .unwrap_or_else(|| "None".into());
         p_table.add_row(&[p.name.clone(), desc, p.type_.clone()]);
     }
     if info.parameters.is_empty() {
