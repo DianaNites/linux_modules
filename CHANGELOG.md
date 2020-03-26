@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] - ReleaseDate
 
+### Changed
+
+- Tables use fancy UTF-8 characters for pretty tables
+
 ## [0.1.5] - 2020-02-26
 
 ### Fixed
