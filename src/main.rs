@@ -15,7 +15,7 @@ enum Commands {
         ///
         /// If this is a full path, that file is loaded directly.
         ///
-        /// If a file name, `lib/modules/(uname -r)` will be searched.
+        /// If a module name, `lib/modules/(uname -r)` will be searched.
         module: PathBuf,
 
         /// Force load the module.
