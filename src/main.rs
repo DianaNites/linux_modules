@@ -170,8 +170,8 @@ fn info_module(name: &Path, uname: Option<&str>) -> Result<()> {
         table.get_table_width().unwrap()
             - table.column_iter().next().unwrap().get_max_content_width()
             // 6 Is how many characters, including padding, the first column borders take.
-            // Plus 1 for our own padding, for a total of 7.
-            - 7,
+            // Plus 2 for our own padding, for a total of 8.
+            - 8,
     );
     //
     let mut parameters = info.parameters.clone();
