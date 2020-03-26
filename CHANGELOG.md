@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] - ReleaseDate
 
+### Added
+
+- Kernel modprobe support. Can be used in `/proc/sys/kernel/modprobe`.
+
 ### Changed
 
 - Tables use fancy UTF-8 characters for pretty tables
