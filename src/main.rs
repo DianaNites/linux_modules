@@ -1,5 +1,5 @@
 use anyhow::Result;
-use comfy_table::{ContentArrangement, Table};
+use comfy_table::{modifiers::UTF8_ROUND_CORNERS, presets::UTF8_FULL, ContentArrangement, Table};
 use linapi::modules::{LoadedModule, ModuleFile};
 use std::path::{Path, PathBuf};
 use structopt::{clap::AppSettings, StructOpt};
@@ -70,6 +70,18 @@ struct Args {
     cmd: Commands,
 }
 
+fn create_table() -> Table {
+    let mut table = Table::new();
+    if table.get_table_width().is_none() {
+        table.set_table_width(80);
+    }
+    table
+        .load_preset(UTF8_FULL)
+        .set_content_arrangement(ContentArrangement::Dynamic)
+        .apply_modifier(UTF8_ROUND_CORNERS);
+    table
+}
+
 fn get_module(name: &Path, uname: Option<&str>) -> Result<ModuleFile> {
     if name.is_absolute() {
         Ok(ModuleFile::from_path(name)?)
@@ -87,11 +99,7 @@ fn get_module(name: &Path, uname: Option<&str>) -> Result<ModuleFile> {
 }
 
 fn list_modules() -> Result<()> {
-    let mut table = Table::new();
-    if table.get_table_width().is_none() {
-        table.set_table_width(80);
-    }
-    table.set_content_arrangement(ContentArrangement::Dynamic);
+    let mut table = create_table();
     table.set_header(&["Module", "Size (Bytes)", "References", "Used By"]);
 
     for m in LoadedModule::get_loaded()? {
@@ -132,11 +140,7 @@ fn remove_module(name: &str, force: bool) -> Result<()> {
 }
 
 fn info_module(name: &Path, uname: Option<&str>) -> Result<()> {
-    let mut table = Table::new();
-    if table.get_table_width().is_none() {
-        table.set_table_width(80);
-    }
-    table.set_content_arrangement(ContentArrangement::Dynamic);
+    let mut table = create_table();
     //
     let m = get_module(name, uname)?;
     let info = m.info();
@@ -164,7 +168,7 @@ fn info_module(name: &Path, uname: Option<&str>) -> Result<()> {
     table.add_row(vec!["Version Magic", &info.version_magic]);
     table.add_row(vec!["Source Checksum", &info.source_checksum]);
     //
-    let mut p_table = Table::new();
+    let mut p_table = create_table();
     p_table.set_header(&["Name", "Desc", "Type"]);
     p_table.set_table_width(
         table.get_table_width().unwrap()
@@ -173,7 +177,6 @@ fn info_module(name: &Path, uname: Option<&str>) -> Result<()> {
             // Plus 1 for our own padding, for a total of 7.
             - 7,
     );
-    p_table.set_content_arrangement(ContentArrangement::Dynamic);
     //
     let mut parameters = info.parameters.clone();
     parameters.sort_unstable_by(|a, b| a.name.cmp(&b.name));
