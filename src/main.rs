@@ -152,10 +152,9 @@ fn remove_module(name: &str, force: bool) -> Result<()> {
 
 fn info_module(name: &Path, uname: Option<&str>) -> Result<()> {
     let mut table = create_table();
-    //
     let m = get_module(name, uname)?;
     let info = m.info();
-    //
+
     table.set_header(&["File".into(), m.path().display().to_string()]);
 
     table.add_row(&["Authors", &info.authors.join("\n")]);
@@ -174,7 +173,7 @@ fn info_module(name: &Path, uname: Option<&str>) -> Result<()> {
     table.add_row(&["Staging", &info.staging.to_string()]);
     table.add_row(&["Version Magic", &info.version_magic]);
     table.add_row(&["Source Checksum", &info.source_checksum]);
-    //
+
     let mut p_table = create_table();
     p_table.set_header(&["Name", "Desc", "Type"]);
     p_table.set_table_width(
@@ -185,7 +184,7 @@ fn info_module(name: &Path, uname: Option<&str>) -> Result<()> {
             // Plus 1 for our own padding, for a total of 7.
             - 7,
     );
-    //
+
     let mut parameters = info.parameters.clone();
     parameters.sort_unstable_by(|a, b| a.name.cmp(&b.name));
     for p in parameters {
@@ -201,25 +200,9 @@ fn info_module(name: &Path, uname: Option<&str>) -> Result<()> {
     } else {
         table.add_row(&["Parameters", &p_table.to_string()]);
     }
-    //
-    // let mut s_table = Table::new();
-    // s_table.set_header(&["Signer", "ID", "Key", "Hash Algorithm",
-    // "Signature"]); s_table.set_table_width(
-    //     table.get_table_width().unwrap()
-    //         - table.column_iter().next().unwrap().get_max_content_width()
-    //         // 6 Is how many characters, including padding, the first column
-    // borders take.         // Plus 1 for our own padding, for a total of 7.
-    //         - 7,
-    // );
-    // s_table.set_content_arrangement(ContentArrangement::Dynamic);
-    // let _s = dbg!(m.signature().unwrap());
-    // s_table.add_row(&["Test"]);
-
     table.add_row(&["Signature", &m.has_signature().to_string()]);
 
-    //
     println!("{}", table);
-    //
     Ok(())
 }
 
