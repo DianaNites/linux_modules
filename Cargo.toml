@@ -26,6 +26,10 @@ comfy-table = "0.1.0"
 linapi = "0.4.3"
 quit = "1.0.0"
 
+[[bin]]
+path = "src/main.rs"
+name = "nms"
+
 [badges]
 maintenance = { status = "experimental" }
 
