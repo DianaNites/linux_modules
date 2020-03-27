@@ -12,6 +12,8 @@ This is a tool to manage your Linux Kernel Modules.
 It is an alternative to `modprobe` and supports listing, adding, removing modules,
 as well as getting information on them.
 
+It does not yet support dependencies or aliases.
+
 ## Install
 
 ```shell
