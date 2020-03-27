@@ -62,7 +62,7 @@ enum Commands {
 #[structopt(global_settings(&[
         AppSettings::ColoredHelp,
         AppSettings::GlobalVersion,
-        AppSettings::DisableVersion,
+        AppSettings::VersionlessSubcommands,
         AppSettings::SubcommandsNegateReqs,
         AppSettings::DisableHelpSubcommand,
         AppSettings::ArgRequiredElseHelp,
