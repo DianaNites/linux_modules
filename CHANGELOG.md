@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] - ReleaseDate
 
+## [0.2.0] - 2020-03-26
+
 ### Changed
 
 - Renamed binary to `nms`.
@@ -83,7 +85,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - CLI Interface for adding, removing listing, and getting information on modules.
 
 <!-- next-url -->
-[Unreleased]: https://github.com/DianaNites/linux_modules/compare/v0.1.7...HEAD
+[Unreleased]: https://github.com/DianaNites/linux_modules/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/DianaNites/linux_modules/compare/v0.1.7...v0.2.0
 [0.1.7]: https://github.com/DianaNites/linux_modules/compare/v0.1.6...v0.1.7
 [0.1.6]: https://github.com/DianaNites/linux_modules/compare/v0.1.5...v0.1.6
 [0.1.5]: https://github.com/DianaNites/linux_modules/compare/v0.1.4...v0.1.5
