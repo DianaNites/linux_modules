@@ -1,7 +1,6 @@
 # Linux Modules
 
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat)](https://github.com/RichardLitt/standard-readme)
-
 [![linux_modules crates.io version and link](https://img.shields.io/crates/v/linux_modules.svg)](https://crates.io/crates/linux_modules)
 ![linux_modules Crates.io license](https://img.shields.io/crates/l/linux_modules)
 [![linux_modules docs.rs badge](https://docs.rs/linux_modules/badge.svg)](https://docs.rs/linux_modules)
