@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] - ReleaseDate
 
+## [0.1.7] - 2020-03-26
+
 ### Added
 
 - Version flags
@@ -76,7 +78,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - CLI Interface for adding, removing listing, and getting information on modules.
 
 <!-- next-url -->
-[Unreleased]: https://github.com/DianaNites/linux_modules/compare/v0.1.6...HEAD
+[Unreleased]: https://github.com/DianaNites/linux_modules/compare/v0.1.7...HEAD
+[0.1.7]: https://github.com/DianaNites/linux_modules/compare/v0.1.6...v0.1.7
 [0.1.6]: https://github.com/DianaNites/linux_modules/compare/v0.1.5...v0.1.6
 [0.1.5]: https://github.com/DianaNites/linux_modules/compare/v0.1.4...v0.1.5
 [0.1.4]: https://github.com/DianaNites/linux_modules/compare/v0.1.3...v0.1.4
