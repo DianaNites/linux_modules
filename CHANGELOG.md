@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] - ReleaseDate
 
+### Fixed
+
+- `nms list` broke due to clap/structopt oddities. Fixed now.
+
 ## [0.2.0] - 2020-03-26
 
 ### Changed

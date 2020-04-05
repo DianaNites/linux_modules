@@ -7,7 +7,13 @@ use structopt::{clap::AppSettings, StructOpt};
 #[derive(Debug, StructOpt)]
 enum Commands {
     /// List loaded kernel modules
-    List {},
+    List {
+        // Even though subcommands are supposed to count as arguments?
+        // With `ArgRequiredElseHelp`, `nms list` just displays help,
+        // so add a dummy default value
+        #[structopt(hidden(true), default_value("0"))]
+        _dummy: u8,
+    },
 
     /// Load a kernel module
     Insert {
