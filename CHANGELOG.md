@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] - ReleaseDate
 
+## [0.2.2] - 2020-04-05
+
 ### Added
 
 - Automatic underscore conversion for `nms remove`.
@@ -96,7 +98,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - CLI Interface for adding, removing listing, and getting information on modules.
 
 <!-- next-url -->
-[Unreleased]: https://github.com/DianaNites/linux_modules/compare/v0.2.1...HEAD
+[Unreleased]: https://github.com/DianaNites/linux_modules/compare/v0.2.2...HEAD
+[0.2.2]: https://github.com/DianaNites/linux_modules/compare/v0.2.1...v0.2.2
 [0.2.1]: https://github.com/DianaNites/linux_modules/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/DianaNites/linux_modules/compare/v0.1.7...v0.2.0
 [0.1.7]: https://github.com/DianaNites/linux_modules/compare/v0.1.6...v0.1.7
