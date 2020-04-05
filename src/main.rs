@@ -1,6 +1,6 @@
 use anyhow::{Context, Result};
 use comfy_table::{modifiers::UTF8_ROUND_CORNERS, presets::UTF8_FULL, ContentArrangement, Table};
-use linapi::modules::{LoadedModule, ModuleFile};
+use linapi::system::modules::{LoadedModule, ModuleFile};
 use std::path::{Path, PathBuf};
 use structopt::{clap::AppSettings, StructOpt};
 
