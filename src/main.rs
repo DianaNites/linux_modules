@@ -141,6 +141,15 @@ fn add_module(name: &Path, force: bool) -> Result<()> {
     if force {
         unsafe { m.force_load("")? };
     } else {
+        // FIXME: Errors with below, even though added successfully.
+        //
+        // Also errors with EXIST if already added.
+        //
+        // Error: Couldn't add module hid-led
+        //
+        // Caused by:
+        // 0: IO Failed: entity not found
+        // 1: entity not found
         m.load("")?;
     }
     Ok(())
