@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] - ReleaseDate
 
+### Added
+
+- Automatic underscore conversion for `nms remove`.
+  `nms remove module-name` is equivalent to `nms remove module_name`
+
 ## [0.2.1] - 2020-04-05
 
 ### Fixed

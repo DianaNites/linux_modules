@@ -147,11 +147,21 @@ fn add_module(name: &Path, force: bool) -> Result<()> {
 }
 
 fn remove_module(name: &str, force: bool) -> Result<()> {
-    let m = LoadedModule::from_name(name)?;
-    if force {
-        unsafe { m.force_unload()? };
-    } else {
-        m.unload()?;
+    for name in &[
+        name.to_string(),
+        name.replace('-', "_"),
+        name.replace('_', "-"),
+    ] {
+        let m = match LoadedModule::from_name(name) {
+            Ok(m) => m,
+            Err(_) => continue,
+        };
+        if force {
+            unsafe { m.force_unload()? };
+        } else {
+            m.unload()?;
+        }
+        break;
     }
     Ok(())
 }

@@ -23,7 +23,7 @@ license = "MIT OR Apache-2.0"
 structopt = "0.3.12"
 anyhow = "1.0.28"
 comfy-table = "0.1.0"
-linapi = "0.4.3"
+linapi = "0.4.4"
 quit = "1.0.0"
 
 [[bin]]

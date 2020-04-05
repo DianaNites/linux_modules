@@ -286,9 +286,9 @@ checksum = "dea0c0405123bba743ee3f91f49b1c7cfb684eef0da0a50110f758ccf24cdff0"
 
 [[package]]
 name = "linapi"
-version = "0.4.3"
+version = "0.4.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "01b16fe1b3667cd767e3ba66e8d03c38b833206b08ec02c802528f43ab043f31"
+checksum = "e04e1c8e5f6dc059dc1666816ae5bde3af0cd51cad1b5ac4a048d0976b83e3b4"
 dependencies = [
  "bitflags",
  "displaydoc",
