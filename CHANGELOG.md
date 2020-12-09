@@ -9,6 +9,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] - ReleaseDate
 
+### Added
+
+- Automatic paging for `nms list` and `nms info`.
+- Attempt fallback to `$COLUMNS` for terminal width if stdout is not a TTY.
+
+### Changed
+
+- `nms info <name>` now uses "Description" instead of "Desc".
+
+### Fixed
+
+- Outdated and large amounts of transitive dependencies.
+
 ## [0.2.3] - 2020-04-05
 
 ### Fixed

@@ -12,7 +12,7 @@ enum Commands {
         // With `ArgRequiredElseHelp`, `nms list` just displays help,
         // so add a dummy default value
         #[structopt(hidden(true), default_value("0"))]
-        _dummy: u8,
+        _hidden_clap_oddity: u8,
     },
 
     /// Load a kernel module
@@ -87,16 +87,21 @@ struct Args {
     cmd: Option<Commands>,
 }
 
-fn create_table() -> Table {
+fn create_table() -> Result<Table> {
     let mut table = Table::new();
     if table.get_table_width().is_none() {
-        table.set_table_width(80);
+        table.set_table_width(
+            std::env::var("COLUMNS")
+                .map(|s| s.parse())
+                .unwrap_or(Ok(80))
+                .context("COLUMNS was not a valid number")?,
+        );
     }
     table
         .load_preset(UTF8_FULL)
         .set_content_arrangement(ContentArrangement::Dynamic)
         .apply_modifier(UTF8_ROUND_CORNERS);
-    table
+    Ok(table)
 }
 
 fn get_module(name: &Path, uname: Option<&str>) -> Result<ModuleFile> {
@@ -116,7 +121,8 @@ fn get_module(name: &Path, uname: Option<&str>) -> Result<ModuleFile> {
 }
 
 fn list_modules() -> Result<()> {
-    let mut table = create_table();
+    pager::Pager::with_default_pager("less").setup();
+    let mut table = create_table()?;
     table.set_header(&["Module", "Size (Bytes)", "References", "Used By"]);
 
     for m in LoadedModule::get_loaded()? {
@@ -167,7 +173,8 @@ fn remove_module(name: &str, force: bool) -> Result<()> {
 }
 
 fn info_module(name: &Path, uname: Option<&str>) -> Result<()> {
-    let mut table = create_table();
+    pager::Pager::with_default_pager("less").setup();
+    let mut table = create_table()?;
     let m = get_module(name, uname)?;
     let info = m.info();
 
@@ -190,8 +197,8 @@ fn info_module(name: &Path, uname: Option<&str>) -> Result<()> {
     table.add_row(&["Version Magic", &info.version_magic]);
     table.add_row(&["Source Checksum", &info.source_checksum]);
 
-    let mut p_table = create_table();
-    p_table.set_header(&["Name", "Desc", "Type"]);
+    let mut p_table = create_table()?;
+    p_table.set_header(&["Name", "Description", "Type"]);
     p_table.set_table_width(
         table.get_table_width().unwrap()
             // Get width of first column, we're second.
@@ -225,7 +232,7 @@ fn info_module(name: &Path, uname: Option<&str>) -> Result<()> {
 #[quit::main]
 fn main() -> Result<()> {
     let args: Args = Args::from_args();
-    //
+
     if args.cmd.is_some() {
         match args.cmd.unwrap() {
             Commands::List { .. } => {
@@ -241,10 +248,13 @@ fn main() -> Result<()> {
                 })?,
         }
     } else {
+        // This exists for support with the Linux kernel, which calls modprobe as so:
+        // `modprobe -q <name>`
+
         // Can't be `None`, guaranteed by clap requirements.
         let _ = add_module(&args.name.unwrap(), false);
         quit::with_code(1);
     }
-    //
+
     Ok(())
 }

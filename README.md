@@ -79,6 +79,14 @@ $ nms info loop
 Note that the table size will adapt to your terminal.
 This example uses size `60`.
 
+### Pager
+
+`nms info` and `nms list` automatically pipe output to a pager,
+defaulting to `less`, but this may be customized through environment variables.
+
+See the [`pager`](https://crates.io/crates/pager) crate for details on
+how to customize what pager is used.
+
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for version history

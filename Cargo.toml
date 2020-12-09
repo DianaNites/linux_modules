@@ -25,6 +25,7 @@ anyhow = "1.0.35"
 comfy-table = "1.4.2"
 linapi = "0.5.1"
 quit = "1.1.2"
+pager = "0.16.0"
 
 [[bin]]
 path = "src/main.rs"
