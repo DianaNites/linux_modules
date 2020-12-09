@@ -8,10 +8,11 @@
 Tool To Manage Linux Kernel Modules
 
 This is a tool to manage your Linux Kernel Modules.
-It is an alternative to `modprobe` and supports listing, adding, removing modules,
-as well as getting information on them.
+It is an alternative to `modprobe`, and supports listing, adding, and removing modules,
+as well as displaying information on them.
 
-It does not yet support dependencies or aliases.
+It does not yet support modprobe style dependencies or aliases,
+and is not capable of displaying module signature data, except whether one exists or not.
 
 ## Install
 
