@@ -22,7 +22,7 @@ license = "MIT OR Apache-2.0"
 [dependencies]
 structopt = "0.3.21"
 anyhow = "1.0.38"
-comfy-table = "1.4.2"
+comfy-table = "2.1.0"
 linapi = "0.5.1"
 quit = "1.1.2"
 pager = "0.16.0"
