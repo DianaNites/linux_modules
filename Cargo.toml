@@ -8,15 +8,8 @@ description = "Tool To Manage Linux Kernel Modules"
 documentation = "https://docs.rs/linux_modules"
 repository = "https://github.com/DianaNites/linux_modules"
 readme = "README.md"
-keywords = [
-    "linux",
-    "kernel",
-    "module",
-]
-categories = [
-    "os::unix-apis",
-    "command-line-utilities"
-]
+keywords = ["linux", "kernel", "module"]
+categories = ["os::unix-apis", "command-line-utilities"]
 license = "MIT OR Apache-2.0"
 
 [dependencies]
@@ -37,27 +30,27 @@ maintenance = { status = "experimental" }
 [[package.metadata.release.pre-release-replacements]]
 file = "CHANGELOG.md"
 search = "Unreleased"
-replace="{{version}}"
+replace = "{{version}}"
 
 [[package.metadata.release.pre-release-replacements]]
 file = "CHANGELOG.md"
 search = "\\.\\.\\.HEAD"
-replace="...{{tag_name}}"
+replace = "...{{tag_name}}"
 exactly = 1
 
 [[package.metadata.release.pre-release-replacements]]
 file = "CHANGELOG.md"
 search = "ReleaseDate"
-replace="{{date}}"
+replace = "{{date}}"
 
 [[package.metadata.release.pre-release-replacements]]
-file="CHANGELOG.md"
-search="<!-- next-header -->"
-replace="<!-- next-header -->\n\n## [Unreleased] - ReleaseDate"
-exactly=1
+file = "CHANGELOG.md"
+search = "<!-- next-header -->"
+replace = "<!-- next-header -->\n\n## [Unreleased] - ReleaseDate"
+exactly = 1
 
 [[package.metadata.release.pre-release-replacements]]
-file="CHANGELOG.md"
-search="<!-- next-url -->"
-replace="<!-- next-url -->\n[Unreleased]: https://github.com/DianaNites/{{crate_name}}/compare/{{tag_name}}...HEAD"
-exactly=1
+file = "CHANGELOG.md"
+search = "<!-- next-url -->"
+replace = "<!-- next-url -->\n[Unreleased]: https://github.com/DianaNites/{{crate_name}}/compare/{{tag_name}}...HEAD"
+exactly = 1
