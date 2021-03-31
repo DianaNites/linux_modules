@@ -1,16 +1,25 @@
 name: Security audit
 on:
   push:
-    paths: 
-      - '**/Cargo.toml'
-      - '**/Cargo.lock'
+    paths:
+      - "**/Cargo.toml"
+      - "**/Cargo.lock"
+    branches: [main]
   schedule:
-    - cron: '0 22 * * 1'
+    - cron: "0 22 * * 1"
 jobs:
   security_audit:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          override: true
+          profile: minimal
+          components: rustfmt, clippy
+      - name: Cache
+        uses: Swatinem/rust-cache@v1.2.0
       - uses: actions-rs/audit-check@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
