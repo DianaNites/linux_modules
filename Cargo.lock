@@ -230,7 +230,7 @@ dependencies = [
 
 [[package]]
 name = "linux_modules"
-version = "0.2.5"
+version = "0.2.6-alpha.0"
 dependencies = [
  "anyhow",
  "comfy-table",
