@@ -400,18 +400,18 @@ dependencies = [
 
 [[package]]
 name = "quit"
-version = "1.1.2"
+version = "1.1.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "94f4bb36a4259c52bb35ae60baf6242b9b33f7505e834d8d36f6227d21840756"
+checksum = "cbfd56235558c8682f9240cfb60c02386e690251b01899afdb5a46b2380e7dbb"
 dependencies = [
  "quit_macros",
 ]
 
 [[package]]
 name = "quit_macros"
-version = "1.1.2"
+version = "1.1.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ff6923e4138faf97a0aaabf4a7b5ff1b0df28370786bead6200d2202c16e1b4e"
+checksum = "26eb4d84b7169670fdf959e18cc4d47480c50baeaf4bf1bb93193bdaa55c7fbc"
 
 [[package]]
 name = "quote"
