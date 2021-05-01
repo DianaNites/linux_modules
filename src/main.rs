@@ -197,7 +197,7 @@ fn info_module(name: &Path, uname: Option<&str>) -> Result<()> {
     table.add_row(&["Version", &info.version]);
     table.add_row(&["Firmware", &info.firmware.join("\n")]);
     table.add_row(&["Alias", &info.alias.join("\n")]);
-    table.add_row(&["Dependencies", &info.dependencies.join("a\n")]);
+    table.add_row(&["Dependencies", &info.dependencies.join("\n")]);
     table.add_row(&[
         "Soft Dependencies".into(),
         info.soft_dependencies.join("\n"),
