@@ -243,7 +243,7 @@ fn info_module(name: &Path, uname: Option<&str>) -> Result<()> {
 #[quit::main]
 fn main() -> Result<()> {
     let args: Args = Args::from_args();
-    let _ = create_table(); // So thatTERM_WIDTH gets set.
+    let _ = create_table(); // So that TERM_WIDTH gets set.
 
     if args.cmd.is_some() {
         match args.cmd.unwrap() {
