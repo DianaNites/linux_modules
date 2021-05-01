@@ -9,6 +9,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] - ReleaseDate
 
+### Added
+
+- Fixed terminal size detection.
+
+### Changed
+
+- `$COLUMNS` will override terminal size detection, not act as a fallback.
+- Fallback terminal width is 80 if it can't be detected and `$COLUMNS` isn't set.
+
+### Fixed
+
+- Typos
+
 ## [0.2.5] - 2021-03-31
 
 ### Changed

@@ -1,8 +1,14 @@
 use anyhow::{Context, Result};
 use comfy_table::{modifiers::UTF8_ROUND_CORNERS, presets::UTF8_FULL, ContentArrangement, Table};
 use linapi::system::modules::{LoadedModule, ModuleFile};
-use std::path::{Path, PathBuf};
+use once_cell::sync::OnceCell;
+use std::{
+    env,
+    path::{Path, PathBuf},
+};
 use structopt::{clap::AppSettings, StructOpt};
+
+static TERM_WIDTH: OnceCell<u16> = OnceCell::new();
 
 #[derive(Debug, StructOpt)]
 enum Commands {
@@ -53,8 +59,10 @@ enum Commands {
     Info {
         /// Uname to use instead of the current one.
         ///
-        /// This may be required if want information on other kernel
-        /// modules and don't want to specify the full path.
+        /// This may be required if you want information on modules regarding a
+        /// kernel other than the one currently running.
+        ///
+        /// Alternatively the full path to the module may be specified.
         #[structopt(long, short)]
         uname: Option<String>,
 
@@ -75,7 +83,7 @@ enum Commands {
     ]
 ))]
 struct Args {
-    /// Module name to load.
+    /// Module name to load. For linux kernel support.
     #[structopt(hidden(true), required_unless("subcommand"))]
     name: Option<PathBuf>,
 
@@ -88,15 +96,15 @@ struct Args {
 }
 
 fn create_table() -> Result<Table> {
+    let cols = env::var("COLUMNS")
+        .map(|s| s.parse())
+        .unwrap_or(Ok(80))
+        .context("COLUMNS was not a valid number")?;
     let mut table = Table::new();
-    if table.get_table_width().is_none() {
-        table.set_table_width(
-            std::env::var("COLUMNS")
-                .map(|s| s.parse())
-                .unwrap_or(Ok(80))
-                .context("COLUMNS was not a valid number")?,
-        );
-    }
+    table.set_table_width(*TERM_WIDTH.get_or_init(|| match table.get_table_width() {
+        Some(w) => w,
+        None => cols,
+    }));
     table
         .load_preset(UTF8_FULL)
         .set_content_arrangement(ContentArrangement::Dynamic)
@@ -177,6 +185,9 @@ fn info_module(name: &Path, uname: Option<&str>) -> Result<()> {
     let mut table = create_table()?;
     let m = get_module(name, uname)?;
     let info = m.info();
+    // FIXME: amdgpu dependencies are comma separated single string?
+    // Bug in linapi? kernel oddity?
+    // panic!("{:?}", &info.dependencies);
 
     table.set_header(&["File".into(), m.path().display().to_string()]);
 
@@ -186,7 +197,7 @@ fn info_module(name: &Path, uname: Option<&str>) -> Result<()> {
     table.add_row(&["Version", &info.version]);
     table.add_row(&["Firmware", &info.firmware.join("\n")]);
     table.add_row(&["Alias", &info.alias.join("\n")]);
-    table.add_row(&["Dependencies", &info.dependencies.join("\n")]);
+    table.add_row(&["Dependencies", &info.dependencies.join("a\n")]);
     table.add_row(&[
         "Soft Dependencies".into(),
         info.soft_dependencies.join("\n"),
@@ -232,6 +243,7 @@ fn info_module(name: &Path, uname: Option<&str>) -> Result<()> {
 #[quit::main]
 fn main() -> Result<()> {
     let args: Args = Args::from_args();
+    let _ = create_table(); // So thatTERM_WIDTH gets set.
 
     if args.cmd.is_some() {
         match args.cmd.unwrap() {

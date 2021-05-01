@@ -235,6 +235,7 @@ dependencies = [
  "anyhow",
  "comfy-table",
  "linapi",
+ "once_cell",
  "pager",
  "quit",
  "structopt",
@@ -323,6 +324,12 @@ checksum = "3f6bb902e437b6d86e03cce10a7e2af662292c5dfef23b65899ea3ac9354ad44"
 dependencies = [
  "winapi",
 ]
+
+[[package]]
+name = "once_cell"
+version = "1.7.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "af8b08b04175473088b46763e51ee54da5f9a164bc162f615b91bc179dbf15a3"
 
 [[package]]
 name = "pager"
