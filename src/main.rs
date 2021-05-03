@@ -129,7 +129,6 @@ fn get_module(name: &Path, uname: Option<&str>) -> Result<ModuleFile> {
 }
 
 fn list_modules() -> Result<()> {
-    pager::Pager::with_default_pager("less").setup();
     let mut table = create_table()?;
     table.set_header(&["Module", "Size (Bytes)", "References", "Used By"]);
 
@@ -145,7 +144,7 @@ fn list_modules() -> Result<()> {
                 .join("\n"),
         ]);
     }
-
+    pager::Pager::with_default_pager("less").setup();
     println!("{}", table);
     Ok(())
 }
@@ -181,9 +180,9 @@ fn remove_module(name: &str, force: bool) -> Result<()> {
 }
 
 fn info_module(name: &Path, uname: Option<&str>) -> Result<()> {
-    pager::Pager::with_default_pager("less").setup();
     let mut table = create_table()?;
     let m = get_module(name, uname)?;
+    pager::Pager::with_default_pager("less").setup();
     let info = m.info();
     // FIXME: amdgpu dependencies are comma separated single string?
     // Bug in linapi? kernel oddity?
