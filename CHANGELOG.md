@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] - ReleaseDate
 
+## [0.3.1] - 2021-05-03
+
 ### Fixed
 
 - Errors being sent to the pager
@@ -144,7 +146,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - CLI Interface for adding, removing listing, and getting information on modules.
 
 <!-- next-url -->
-[Unreleased]: https://github.com/DianaNites/linux_modules/compare/v0.3.0...HEAD
+[Unreleased]: https://github.com/DianaNites/linux_modules/compare/v0.3.1...HEAD
+[0.3.1]: https://github.com/DianaNites/linux_modules/compare/v0.3.0...v0.3.1
 [0.3.0]: https://github.com/DianaNites/linux_modules/compare/v0.2.5...v0.3.0
 [0.2.5]: https://github.com/DianaNites/linux_modules/compare/v0.2.4...v0.2.5
 [0.2.4]: https://github.com/DianaNites/linux_modules/compare/v0.2.3...v0.2.4
