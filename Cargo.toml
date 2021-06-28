@@ -17,7 +17,7 @@ structopt = "0.3.21"
 anyhow = "1.0.41"
 comfy-table = "3.0.0"
 linapi = "0.5.1"
-quit = "1.1.3"
+quit = "1.1.4"
 pager = "0.16.0"
 once_cell = "1.8.0"
 
