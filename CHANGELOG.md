@@ -9,11 +9,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] - ReleaseDate
 
+### Added
+
+- Support for Zstandard kernel module compression.
+
+### Changed
+
+- Updated dependencies.
+
 ## [0.3.1] - 2021-05-03
 
 ### Fixed
 
-- Errors being sent to the pager
+- Errors being sent to the pager.
 
 ## [0.3.0] - 2021-05-01
 
