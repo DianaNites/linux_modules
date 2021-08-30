@@ -13,7 +13,7 @@ categories = ["os::unix-apis", "command-line-utilities"]
 license = "MIT OR Apache-2.0"
 
 [dependencies]
-structopt = "0.3.22"
+structopt = "0.3.23"
 anyhow = "1.0.43"
 comfy-table = "4.1.1"
 linapi = "0.5.2"
