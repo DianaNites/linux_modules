@@ -14,7 +14,7 @@ license = "MIT OR Apache-2.0"
 
 [dependencies]
 structopt = "0.3.25"
-anyhow = "1.0.45"
+anyhow = "1.0.48"
 comfy-table = "5.0.0"
 linapi = "0.5.2"
 quit = "1.1.4"
