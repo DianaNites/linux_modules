@@ -12,6 +12,7 @@ use insta::assert_snapshot;
 /// the formatting is correct, not the contents.
 // TODO: Figure out `insta` filters to ignore changing contents
 #[test]
+#[ignore = "Flaky"]
 fn amdgpu_info() -> Result<()> {
     let mut cmd = Command::cargo_bin("nms")?;
     cmd //.
@@ -47,6 +48,7 @@ fn help() -> Result<()> {
 }
 
 #[test]
+#[ignore = "Flaky"]
 fn list() -> Result<()> {
     let mut cmd = Command::cargo_bin("nms")?;
     cmd.env_clear().env("COLUMNS", "120").args(["list"]);
