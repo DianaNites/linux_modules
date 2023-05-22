@@ -221,7 +221,7 @@ fn info_module(name: &Path, uname: Option<&str>) -> Result<()> {
         .max()
         .unwrap_or(0);
 
-    p_table.set_width(table.width().unwrap() - max_width);
+    p_table.set_width(table.width().unwrap().saturating_sub(max_width));
 
     let mut parameters = info.parameters.clone();
     parameters.sort_unstable_by(|a, b| a.name.cmp(&b.name));
