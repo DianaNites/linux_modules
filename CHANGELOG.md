@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] - ReleaseDate
 
+### Fixed
+
+- Fixed parameter table width
+
 ## [0.3.5] - 2023-05-22
 
 ### Fixed
