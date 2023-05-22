@@ -85,7 +85,7 @@ struct Args {
     name: Option<PathBuf>,
 
     /// Does nothing. For linux kernel support.
-    #[clap(short, hide(true), required_unless("name"))]
+    #[clap(short, hide(true), required(true))]
     #[allow(dead_code)]
     quiet: bool,
 
