@@ -21,6 +21,10 @@ quit = "2.0.0"
 pager = "0.16.1"
 once_cell = "1.17.1"
 
+[dev-dependencies]
+assert_cmd = "2.0.11"
+insta = { version = "1.29.0", features = ["yaml"] }
+
 [[bin]]
 path = "src/main.rs"
 name = "nms"
