@@ -45,3 +45,15 @@ fn help() -> Result<()> {
 
     Ok(())
 }
+
+#[test]
+fn list() -> Result<()> {
+    let mut cmd = Command::cargo_bin("nms")?;
+    cmd.env_clear().env("COLUMNS", "120").args(["list"]);
+    let out = cmd.output()?;
+    let out = from_utf8(&out.stdout)?;
+
+    assert_snapshot!(out);
+
+    Ok(())
+}
