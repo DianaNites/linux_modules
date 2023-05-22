@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] - ReleaseDate
 
+### Added
+
+- Shell completion support
+
 ### Fixed
 
 - Broken pipe panic
@@ -18,6 +22,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Internal code improvements
 - Updated `comfy-tables`
+- Updated `clap`
+- Updated `quit`
 
 ## [0.3.2] - 2021-07-23
 
