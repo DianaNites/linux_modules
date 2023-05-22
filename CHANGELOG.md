@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Broken pipe panic
 - Proper column width for `nms info <module>` parameters
+- Fixed "invalid `.modinfo`" for certain modules, such as `loop`
 
 ### Changed
 
@@ -24,6 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated `comfy-tables`
 - Updated `clap`
 - Updated `quit`
+- Updated `linapi`
 
 ## [0.3.2] - 2021-07-23
 
