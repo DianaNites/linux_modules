@@ -12,6 +12,7 @@ use structopt::{clap::AppSettings, StructOpt};
 
 static TERM_WIDTH: OnceCell<u16> = OnceCell::new();
 
+// TODO: Figure out how to update to 3.x
 #[derive(Debug, StructOpt)]
 enum Commands {
     /// List loaded kernel modules
