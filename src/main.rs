@@ -104,7 +104,7 @@ fn create_table() -> Result<Table> {
         .unwrap_or(Ok(80))
         .context("COLUMNS was not a valid number")?;
     let mut table = Table::new();
-    table.set_table_width(*TERM_WIDTH.get_or_init(|| match table.get_table_width() {
+    table.set_width(*TERM_WIDTH.get_or_init(|| match table.width() {
         Some(w) => w,
         None => cols,
     }));
@@ -212,14 +212,16 @@ fn info_module(name: &Path, uname: Option<&str>) -> Result<()> {
 
     let mut p_table = create_table()?;
     p_table.set_header(["Name", "Description", "Type"]);
-    p_table.set_table_width(
-        table.get_table_width().unwrap()
-            // Get width of first column, we're second.
-            - table.get_column(0).unwrap().get_max_content_width()
-            // 6 Is how many characters, including padding, the first column borders take.
-            // Plus 1 for our own padding, for a total of 7.
-            - 7,
-    );
+
+    // Max width of `tables` contents before we add params
+    let max_width = table
+        .column_max_content_widths()
+        .iter()
+        .copied()
+        .max()
+        .unwrap_or(0);
+
+    p_table.set_width(table.width().unwrap() - max_width);
 
     let mut parameters = info.parameters.clone();
     parameters.sort_unstable_by(|a, b| a.name.cmp(&b.name));

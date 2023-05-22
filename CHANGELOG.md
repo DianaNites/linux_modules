@@ -12,10 +12,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Broken pipe panic
+- Proper column width for `nms info <module>` parameters
 
 ### Changed
 
-- Internal improvements
+- Internal code improvements
+- Updated `comfy-tables`
 
 ## [0.3.2] - 2021-07-23
 
