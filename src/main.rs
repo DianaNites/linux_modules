@@ -1,11 +1,12 @@
-use anyhow::{Context, Result};
-use comfy_table::{modifiers::UTF8_ROUND_CORNERS, presets::UTF8_FULL, ContentArrangement, Table};
-use linapi::system::modules::{LoadedModule, ModuleFile};
-use once_cell::sync::OnceCell;
 use std::{
     env,
     path::{Path, PathBuf},
 };
+
+use anyhow::{Context, Result};
+use comfy_table::{modifiers::UTF8_ROUND_CORNERS, presets::UTF8_FULL, ContentArrangement, Table};
+use linapi::system::modules::{LoadedModule, ModuleFile};
+use once_cell::sync::OnceCell;
 use structopt::{clap::AppSettings, StructOpt};
 
 static TERM_WIDTH: OnceCell<u16> = OnceCell::new();
