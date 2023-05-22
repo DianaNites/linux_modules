@@ -2,12 +2,12 @@
 source: tests/ui.rs
 expression: out
 ---
-nms-list 0.3.3-alpha.0
+nms-list 
 List loaded kernel modules
 
 USAGE:
     nms list
 
-FLAGS:
-    -h, --help    Prints help information
+OPTIONS:
+    -h, --help    Print help information
 

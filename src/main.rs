@@ -5,22 +5,21 @@ use std::{
 };
 
 use anyhow::{Context, Result};
+use clap::Parser;
 use comfy_table::{modifiers::UTF8_ROUND_CORNERS, presets::UTF8_FULL, ContentArrangement, Table};
 use linapi::system::modules::{LoadedModule, ModuleFile};
 use once_cell::sync::OnceCell;
-use structopt::{clap::AppSettings, StructOpt};
 
 static TERM_WIDTH: OnceCell<u16> = OnceCell::new();
 
-// TODO: Figure out how to update to 3.x
-#[derive(Debug, StructOpt)]
+#[derive(Debug, Parser)]
 enum Commands {
     /// List loaded kernel modules
     List {
         // Even though subcommands are supposed to count as arguments?
         // With `ArgRequiredElseHelp`, `nms list` just displays help,
         // so add a dummy default value
-        #[structopt(hidden(true), default_value("0"))]
+        #[clap(hide(true), default_value("0"))]
         _hidden_clap_oddity: u8,
     },
 
@@ -38,7 +37,7 @@ enum Commands {
         /// This ignores important kernel compatibility checks.
         ///
         /// USE AT YOUR OWN RISK
-        #[structopt(long, short)]
+        #[clap(long, short)]
         force: bool,
     },
 
@@ -54,7 +53,7 @@ enum Commands {
         /// can cause a module currently being used to be unloaded.
         ///
         /// USE AT YOUR OWN RISK
-        #[structopt(long, short)]
+        #[clap(long, short)]
         force: bool,
     },
 
@@ -66,7 +65,7 @@ enum Commands {
         /// kernel other than the one currently running.
         ///
         /// Alternatively the full path to the module may be specified.
-        #[structopt(long, short)]
+        #[clap(long, short)]
         uname: Option<String>,
 
         /// Name of the module, or a path to one.
@@ -75,27 +74,22 @@ enum Commands {
 }
 
 /// Manage Linux Kernel Modules
-#[derive(Debug, StructOpt)]
-#[structopt(global_settings(&[
-        AppSettings::ColoredHelp,
-        AppSettings::GlobalVersion,
-        AppSettings::VersionlessSubcommands,
-        AppSettings::SubcommandsNegateReqs,
-        AppSettings::DisableHelpSubcommand,
-        AppSettings::ArgRequiredElseHelp,
-    ]
-))]
+#[derive(Debug, Parser)]
+#[clap(version)]
+#[clap(subcommand_negates_reqs = true)]
+#[clap(disable_help_subcommand = true)]
+#[clap(arg_required_else_help = true)]
 struct Args {
     /// Module name to load. For linux kernel support.
-    #[structopt(hidden(true), required_unless("subcommand"))]
+    #[clap(hide(true), required_unless("name"))]
     name: Option<PathBuf>,
 
     /// Does nothing. For linux kernel support.
-    #[structopt(short, hidden(true), required_unless("subcommand"))]
+    #[clap(short, hide(true), required_unless("name"))]
     #[allow(dead_code)]
     quiet: bool,
 
-    #[structopt(subcommand)]
+    #[clap(subcommand)]
     cmd: Option<Commands>,
 }
 

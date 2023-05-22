@@ -6,12 +6,12 @@ linux_modules 0.3.3-alpha.0
 Manage Linux Kernel Modules
 
 USAGE:
-    nms <name> -q
+    nms
     nms <SUBCOMMAND>
 
-FLAGS:
-    -h, --help       Prints help information
-    -V, --version    Prints version information
+OPTIONS:
+    -h, --help       Print help information
+    -V, --version    Print version information
 
 SUBCOMMANDS:
     info      Get information on a kernel module
