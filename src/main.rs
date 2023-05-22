@@ -1,5 +1,6 @@
 use std::{
     env,
+    io::{stdout, Write},
     path::{Path, PathBuf},
 };
 
@@ -147,7 +148,7 @@ fn list_modules() -> Result<()> {
         ]);
     }
     pager::Pager::with_default_pager("less").setup();
-    println!("{}", table);
+    let _ = writeln!(stdout(), "{}", table);
     Ok(())
 }
 
@@ -237,7 +238,7 @@ fn info_module(name: &Path, uname: Option<&str>) -> Result<()> {
     }
     table.add_row(["Signature", &m.has_signature().to_string()]);
 
-    println!("{}", table);
+    let _ = writeln!(stdout(), "{}", table);
     Ok(())
 }
 
