@@ -13,7 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- Fixed parameter table width
+- Fixed table width
 
 ## [0.3.5] - 2023-05-22
 
