@@ -5,7 +5,8 @@ use std::{
 };
 
 use anyhow::{Context, Result};
-use clap::Parser;
+use clap::{CommandFactory, Parser, ValueHint};
+use clap_complete::Shell;
 use comfy_table::{modifiers::UTF8_ROUND_CORNERS, presets::UTF8_FULL, ContentArrangement, Table};
 use linapi::system::modules::{LoadedModule, ModuleFile};
 use once_cell::sync::OnceCell;
@@ -24,6 +25,7 @@ enum Commands {
         /// If this is a full path, that file is loaded directly.
         ///
         /// If a module name, `lib/modules/(uname -r)` will be searched.
+        #[clap(value_hint(ValueHint::FilePath))]
         module: PathBuf,
 
         /// Force load the module.
@@ -63,7 +65,15 @@ enum Commands {
         uname: Option<String>,
 
         /// Name of the module, or a path to one.
+        #[clap(value_hint(ValueHint::FilePath))]
         module: PathBuf,
+    },
+
+    /// Generate shell completions, outputting to stdout
+    Completions {
+        // Shell to generate completions for
+        #[clap(value_enum)]
+        shell: Shell,
     },
 }
 
@@ -75,7 +85,7 @@ enum Commands {
 #[clap(arg_required_else_help = true)]
 struct Args {
     /// Module name to load. For linux kernel support.
-    #[clap(hide(true), required_unless("name"))]
+    #[clap(hide(true), required_unless("name"), value_hint(ValueHint::FilePath))]
     name: Option<PathBuf>,
 
     /// Does nothing. For linux kernel support.
@@ -250,6 +260,14 @@ fn main() -> Result<()> {
                 .with_context(|| {
                     format!("Couldn't get information on module {}", module.display())
                 })?,
+            Commands::Completions { shell } => {
+                clap_complete::generate(
+                    shell,
+                    &mut Args::command(),
+                    env!("CARGO_BIN_NAME"),
+                    &mut stdout(),
+                );
+            }
         }
     } else {
         // This exists for support with the Linux kernel, which calls modprobe as so:
