@@ -32,7 +32,6 @@ name = "nms"
 [badges]
 maintenance = { status = "experimental" }
 
-# The profile that 'cargo dist' will build with
 [profile.dist]
 inherits = "release"
 lto = "thin"
@@ -44,3 +43,9 @@ rust-toolchain-version = "stable"
 ci = ["github"]
 installers = []
 targets = ["x86_64-unknown-linux-gnu"]
+
+[profile.dev.package.insta]
+opt-level = 3
+
+[profile.dev.package.similar]
+opt-level = 3
