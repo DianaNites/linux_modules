@@ -9,6 +9,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] - ReleaseDate
 
+### Fixed
+
+- Broken pipe panic
+
+### Changed
+
+- Internal improvements
+
 ## [0.3.2] - 2021-07-23
 
 ### Added
