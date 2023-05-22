@@ -1,0 +1,1482 @@
+---
+source: tests/ui.rs
+expression: out
+---
+╭───────────────────┬──────────────────────────────────────────────────────────────────────────────╮
+│ File              ┆ /lib/modules/6.3.1-arch2-1/kernel/drivers/gpu/drm/amd/amdgpu/amdgpu.ko.zst   │
+╞═══════════════════╪══════════════════════════════════════════════════════════════════════════════╡
+│ Authors           ┆ AMD linux driver team                                                        │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ License           ┆ GPL and additional rights                                                    │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ Description       ┆ AMD GPU                                                                      │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ Version           ┆                                                                              │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ Firmware          ┆ amdgpu/navi12_gpu_info.bin                                                   │
+│                   ┆ amdgpu/arcturus_gpu_info.bin                                                 │
+│                   ┆ amdgpu/raven2_gpu_info.bin                                                   │
+│                   ┆ amdgpu/picasso_gpu_info.bin                                                  │
+│                   ┆ amdgpu/raven_gpu_info.bin                                                    │
+│                   ┆ amdgpu/vega12_gpu_info.bin                                                   │
+│                   ┆ amdgpu/vega10_gpu_info.bin                                                   │
+│                   ┆ amdgpu/ip_discovery.bin                                                      │
+│                   ┆ amdgpu/mullins_mec.bin                                                       │
+│                   ┆ amdgpu/mullins_rlc.bin                                                       │
+│                   ┆ amdgpu/mullins_ce.bin                                                        │
+│                   ┆ amdgpu/mullins_me.bin                                                        │
+│                   ┆ amdgpu/mullins_pfp.bin                                                       │
+│                   ┆ amdgpu/kabini_mec.bin                                                        │
+│                   ┆ amdgpu/kabini_rlc.bin                                                        │
+│                   ┆ amdgpu/kabini_ce.bin                                                         │
+│                   ┆ amdgpu/kabini_me.bin                                                         │
+│                   ┆ amdgpu/kabini_pfp.bin                                                        │
+│                   ┆ amdgpu/kaveri_mec2.bin                                                       │
+│                   ┆ amdgpu/kaveri_mec.bin                                                        │
+│                   ┆ amdgpu/kaveri_rlc.bin                                                        │
+│                   ┆ amdgpu/kaveri_ce.bin                                                         │
+│                   ┆ amdgpu/kaveri_me.bin                                                         │
+│                   ┆ amdgpu/kaveri_pfp.bin                                                        │
+│                   ┆ amdgpu/hawaii_mec.bin                                                        │
+│                   ┆ amdgpu/hawaii_rlc.bin                                                        │
+│                   ┆ amdgpu/hawaii_ce.bin                                                         │
+│                   ┆ amdgpu/hawaii_me.bin                                                         │
+│                   ┆ amdgpu/hawaii_pfp.bin                                                        │
+│                   ┆ amdgpu/bonaire_mec.bin                                                       │
+│                   ┆ amdgpu/bonaire_rlc.bin                                                       │
+│                   ┆ amdgpu/bonaire_ce.bin                                                        │
+│                   ┆ amdgpu/bonaire_me.bin                                                        │
+│                   ┆ amdgpu/bonaire_pfp.bin                                                       │
+│                   ┆ amdgpu/mullins_sdma1.bin                                                     │
+│                   ┆ amdgpu/mullins_sdma.bin                                                      │
+│                   ┆ amdgpu/kabini_sdma1.bin                                                      │
+│                   ┆ amdgpu/kabini_sdma.bin                                                       │
+│                   ┆ amdgpu/kaveri_sdma1.bin                                                      │
+│                   ┆ amdgpu/kaveri_sdma.bin                                                       │
+│                   ┆ amdgpu/hawaii_sdma1.bin                                                      │
+│                   ┆ amdgpu/hawaii_sdma.bin                                                       │
+│                   ┆ amdgpu/bonaire_sdma1.bin                                                     │
+│                   ┆ amdgpu/bonaire_sdma.bin                                                      │
+│                   ┆ amdgpu/si58_mc.bin                                                           │
+│                   ┆ amdgpu/hainan_mc.bin                                                         │
+│                   ┆ amdgpu/oland_mc.bin                                                          │
+│                   ┆ amdgpu/verde_mc.bin                                                          │
+│                   ┆ amdgpu/pitcairn_mc.bin                                                       │
+│                   ┆ amdgpu/tahiti_mc.bin                                                         │
+│                   ┆ amdgpu/hainan_rlc.bin                                                        │
+│                   ┆ amdgpu/hainan_ce.bin                                                         │
+│                   ┆ amdgpu/hainan_me.bin                                                         │
+│                   ┆ amdgpu/hainan_pfp.bin                                                        │
+│                   ┆ amdgpu/oland_rlc.bin                                                         │
+│                   ┆ amdgpu/oland_ce.bin                                                          │
+│                   ┆ amdgpu/oland_me.bin                                                          │
+│                   ┆ amdgpu/oland_pfp.bin                                                         │
+│                   ┆ amdgpu/verde_rlc.bin                                                         │
+│                   ┆ amdgpu/verde_ce.bin                                                          │
+│                   ┆ amdgpu/verde_me.bin                                                          │
+│                   ┆ amdgpu/verde_pfp.bin                                                         │
+│                   ┆ amdgpu/pitcairn_rlc.bin                                                      │
+│                   ┆ amdgpu/pitcairn_ce.bin                                                       │
+│                   ┆ amdgpu/pitcairn_me.bin                                                       │
+│                   ┆ amdgpu/pitcairn_pfp.bin                                                      │
+│                   ┆ amdgpu/tahiti_rlc.bin                                                        │
+│                   ┆ amdgpu/tahiti_ce.bin                                                         │
+│                   ┆ amdgpu/tahiti_me.bin                                                         │
+│                   ┆ amdgpu/tahiti_pfp.bin                                                        │
+│                   ┆ amdgpu/topaz_mc.bin                                                          │
+│                   ┆ amdgpu/hawaii_mc.bin                                                         │
+│                   ┆ amdgpu/bonaire_mc.bin                                                        │
+│                   ┆ amdgpu/polaris12_k_mc.bin                                                    │
+│                   ┆ amdgpu/polaris10_k_mc.bin                                                    │
+│                   ┆ amdgpu/polaris11_k_mc.bin                                                    │
+│                   ┆ amdgpu/polaris12_32_mc.bin                                                   │
+│                   ┆ amdgpu/polaris12_mc.bin                                                      │
+│                   ┆ amdgpu/polaris10_mc.bin                                                      │
+│                   ┆ amdgpu/polaris11_mc.bin                                                      │
+│                   ┆ amdgpu/tonga_mc.bin                                                          │
+│                   ┆ amdgpu/vega12_asd.bin                                                        │
+│                   ┆ amdgpu/vega12_sos.bin                                                        │
+│                   ┆ amdgpu/vega10_cap.bin                                                        │
+│                   ┆ amdgpu/vega10_asd.bin                                                        │
+│                   ┆ amdgpu/vega10_sos.bin                                                        │
+│                   ┆ amdgpu/raven_ta.bin                                                          │
+│                   ┆ amdgpu/raven2_ta.bin                                                         │
+│                   ┆ amdgpu/picasso_ta.bin                                                        │
+│                   ┆ amdgpu/raven2_asd.bin                                                        │
+│                   ┆ amdgpu/picasso_asd.bin                                                       │
+│                   ┆ amdgpu/raven_asd.bin                                                         │
+│                   ┆ amdgpu/beige_goby_ta.bin                                                     │
+│                   ┆ amdgpu/beige_goby_sos.bin                                                    │
+│                   ┆ amdgpu/dimgrey_cavefish_ta.bin                                               │
+│                   ┆ amdgpu/dimgrey_cavefish_sos.bin                                              │
+│                   ┆ amdgpu/vangogh_toc.bin                                                       │
+│                   ┆ amdgpu/vangogh_asd.bin                                                       │
+│                   ┆ amdgpu/navy_flounder_ta.bin                                                  │
+│                   ┆ amdgpu/navy_flounder_sos.bin                                                 │
+│                   ┆ amdgpu/sienna_cichlid_cap.bin                                                │
+│                   ┆ amdgpu/sienna_cichlid_ta.bin                                                 │
+│                   ┆ amdgpu/sienna_cichlid_sos.bin                                                │
+│                   ┆ amdgpu/arcturus_ta.bin                                                       │
+│                   ┆ amdgpu/arcturus_asd.bin                                                      │
+│                   ┆ amdgpu/arcturus_sos.bin                                                      │
+│                   ┆ amdgpu/navi12_cap.bin                                                        │
+│                   ┆ amdgpu/navi12_ta.bin                                                         │
+│                   ┆ amdgpu/navi12_asd.bin                                                        │
+│                   ┆ amdgpu/navi12_sos.bin                                                        │
+│                   ┆ amdgpu/navi14_ta.bin                                                         │
+│                   ┆ amdgpu/navi14_asd.bin                                                        │
+│                   ┆ amdgpu/navi14_sos.bin                                                        │
+│                   ┆ amdgpu/navi10_ta.bin                                                         │
+│                   ┆ amdgpu/navi10_asd.bin                                                        │
+│                   ┆ amdgpu/navi10_sos.bin                                                        │
+│                   ┆ amdgpu/vega20_ta.bin                                                         │
+│                   ┆ amdgpu/vega20_asd.bin                                                        │
+│                   ┆ amdgpu/vega20_sos.bin                                                        │
+│                   ┆ amdgpu/green_sardine_ta.bin                                                  │
+│                   ┆ amdgpu/green_sardine_asd.bin                                                 │
+│                   ┆ amdgpu/renoir_ta.bin                                                         │
+│                   ┆ amdgpu/renoir_asd.bin                                                        │
+│                   ┆ amdgpu/psp_13_0_11_ta.bin                                                    │
+│                   ┆ amdgpu/psp_13_0_11_toc.bin                                                   │
+│                   ┆ amdgpu/psp_13_0_10_ta.bin                                                    │
+│                   ┆ amdgpu/psp_13_0_10_sos.bin                                                   │
+│                   ┆ amdgpu/psp_13_0_7_ta.bin                                                     │
+│                   ┆ amdgpu/psp_13_0_7_sos.bin                                                    │
+│                   ┆ amdgpu/psp_13_0_0_ta.bin                                                     │
+│                   ┆ amdgpu/psp_13_0_0_sos.bin                                                    │
+│                   ┆ amdgpu/psp_13_0_8_ta.bin                                                     │
+│                   ┆ amdgpu/psp_13_0_8_toc.bin                                                    │
+│                   ┆ amdgpu/psp_13_0_5_ta.bin                                                     │
+│                   ┆ amdgpu/psp_13_0_5_toc.bin                                                    │
+│                   ┆ amdgpu/yellow_carp_ta.bin                                                    │
+│                   ┆ amdgpu/yellow_carp_toc.bin                                                   │
+│                   ┆ amdgpu/aldebaran_cap.bin                                                     │
+│                   ┆ amdgpu/aldebaran_ta.bin                                                      │
+│                   ┆ amdgpu/aldebaran_sos.bin                                                     │
+│                   ┆ amdgpu/psp_13_0_4_ta.bin                                                     │
+│                   ┆ amdgpu/psp_13_0_4_toc.bin                                                    │
+│                   ┆ amdgpu/vegam_rlc.bin                                                         │
+│                   ┆ amdgpu/vegam_mec2.bin                                                        │
+│                   ┆ amdgpu/vegam_mec.bin                                                         │
+│                   ┆ amdgpu/vegam_me.bin                                                          │
+│                   ┆ amdgpu/vegam_pfp.bin                                                         │
+│                   ┆ amdgpu/vegam_ce.bin                                                          │
+│                   ┆ amdgpu/polaris12_rlc.bin                                                     │
+│                   ┆ amdgpu/polaris12_mec2_2.bin                                                  │
+│                   ┆ amdgpu/polaris12_mec2.bin                                                    │
+│                   ┆ amdgpu/polaris12_mec_2.bin                                                   │
+│                   ┆ amdgpu/polaris12_mec.bin                                                     │
+│                   ┆ amdgpu/polaris12_me_2.bin                                                    │
+│                   ┆ amdgpu/polaris12_me.bin                                                      │
+│                   ┆ amdgpu/polaris12_pfp_2.bin                                                   │
+│                   ┆ amdgpu/polaris12_pfp.bin                                                     │
+│                   ┆ amdgpu/polaris12_ce_2.bin                                                    │
+│                   ┆ amdgpu/polaris12_ce.bin                                                      │
+│                   ┆ amdgpu/polaris11_rlc.bin                                                     │
+│                   ┆ amdgpu/polaris11_mec2_2.bin                                                  │
+│                   ┆ amdgpu/polaris11_mec2.bin                                                    │
+│                   ┆ amdgpu/polaris11_mec_2.bin                                                   │
+│                   ┆ amdgpu/polaris11_mec.bin                                                     │
+│                   ┆ amdgpu/polaris11_me_2.bin                                                    │
+│                   ┆ amdgpu/polaris11_me.bin                                                      │
+│                   ┆ amdgpu/polaris11_pfp_2.bin                                                   │
+│                   ┆ amdgpu/polaris11_pfp.bin                                                     │
+│                   ┆ amdgpu/polaris11_ce_2.bin                                                    │
+│                   ┆ amdgpu/polaris11_ce.bin                                                      │
+│                   ┆ amdgpu/polaris10_rlc.bin                                                     │
+│                   ┆ amdgpu/polaris10_mec2_2.bin                                                  │
+│                   ┆ amdgpu/polaris10_mec2.bin                                                    │
+│                   ┆ amdgpu/polaris10_mec_2.bin                                                   │
+│                   ┆ amdgpu/polaris10_mec.bin                                                     │
+│                   ┆ amdgpu/polaris10_me_2.bin                                                    │
+│                   ┆ amdgpu/polaris10_me.bin                                                      │
+│                   ┆ amdgpu/polaris10_pfp_2.bin                                                   │
+│                   ┆ amdgpu/polaris10_pfp.bin                                                     │
+│                   ┆ amdgpu/polaris10_ce_2.bin                                                    │
+│                   ┆ amdgpu/polaris10_ce.bin                                                      │
+│                   ┆ amdgpu/fiji_rlc.bin                                                          │
+│                   ┆ amdgpu/fiji_mec2.bin                                                         │
+│                   ┆ amdgpu/fiji_mec.bin                                                          │
+│                   ┆ amdgpu/fiji_me.bin                                                           │
+│                   ┆ amdgpu/fiji_pfp.bin                                                          │
+│                   ┆ amdgpu/fiji_ce.bin                                                           │
+│                   ┆ amdgpu/topaz_rlc.bin                                                         │
+│                   ┆ amdgpu/topaz_mec.bin                                                         │
+│                   ┆ amdgpu/topaz_me.bin                                                          │
+│                   ┆ amdgpu/topaz_pfp.bin                                                         │
+│                   ┆ amdgpu/topaz_ce.bin                                                          │
+│                   ┆ amdgpu/tonga_rlc.bin                                                         │
+│                   ┆ amdgpu/tonga_mec2.bin                                                        │
+│                   ┆ amdgpu/tonga_mec.bin                                                         │
+│                   ┆ amdgpu/tonga_me.bin                                                          │
+│                   ┆ amdgpu/tonga_pfp.bin                                                         │
+│                   ┆ amdgpu/tonga_ce.bin                                                          │
+│                   ┆ amdgpu/stoney_rlc.bin                                                        │
+│                   ┆ amdgpu/stoney_mec.bin                                                        │
+│                   ┆ amdgpu/stoney_me.bin                                                         │
+│                   ┆ amdgpu/stoney_pfp.bin                                                        │
+│                   ┆ amdgpu/stoney_ce.bin                                                         │
+│                   ┆ amdgpu/carrizo_rlc.bin                                                       │
+│                   ┆ amdgpu/carrizo_mec2.bin                                                      │
+│                   ┆ amdgpu/carrizo_mec.bin                                                       │
+│                   ┆ amdgpu/carrizo_me.bin                                                        │
+│                   ┆ amdgpu/carrizo_pfp.bin                                                       │
+│                   ┆ amdgpu/carrizo_ce.bin                                                        │
+│                   ┆ amdgpu/aldebaran_sjt_mec2.bin                                                │
+│                   ┆ amdgpu/aldebaran_sjt_mec.bin                                                 │
+│                   ┆ amdgpu/aldebaran_rlc.bin                                                     │
+│                   ┆ amdgpu/aldebaran_mec2.bin                                                    │
+│                   ┆ amdgpu/aldebaran_mec.bin                                                     │
+│                   ┆ amdgpu/green_sardine_rlc.bin                                                 │
+│                   ┆ amdgpu/green_sardine_mec2.bin                                                │
+│                   ┆ amdgpu/green_sardine_mec.bin                                                 │
+│                   ┆ amdgpu/green_sardine_me.bin                                                  │
+│                   ┆ amdgpu/green_sardine_pfp.bin                                                 │
+│                   ┆ amdgpu/green_sardine_ce.bin                                                  │
+│                   ┆ amdgpu/renoir_rlc.bin                                                        │
+│                   ┆ amdgpu/renoir_mec.bin                                                        │
+│                   ┆ amdgpu/renoir_me.bin                                                         │
+│                   ┆ amdgpu/renoir_pfp.bin                                                        │
+│                   ┆ amdgpu/renoir_ce.bin                                                         │
+│                   ┆ amdgpu/arcturus_rlc.bin                                                      │
+│                   ┆ amdgpu/arcturus_mec.bin                                                      │
+│                   ┆ amdgpu/raven_kicker_rlc.bin                                                  │
+│                   ┆ amdgpu/raven2_rlc.bin                                                        │
+│                   ┆ amdgpu/raven2_mec2.bin                                                       │
+│                   ┆ amdgpu/raven2_mec.bin                                                        │
+│                   ┆ amdgpu/raven2_me.bin                                                         │
+│                   ┆ amdgpu/raven2_pfp.bin                                                        │
+│                   ┆ amdgpu/raven2_ce.bin                                                         │
+│                   ┆ amdgpu/picasso_rlc_am4.bin                                                   │
+│                   ┆ amdgpu/picasso_rlc.bin                                                       │
+│                   ┆ amdgpu/picasso_mec2.bin                                                      │
+│                   ┆ amdgpu/picasso_mec.bin                                                       │
+│                   ┆ amdgpu/picasso_me.bin                                                        │
+│                   ┆ amdgpu/picasso_pfp.bin                                                       │
+│                   ┆ amdgpu/picasso_ce.bin                                                        │
+│                   ┆ amdgpu/raven_rlc.bin                                                         │
+│                   ┆ amdgpu/raven_mec2.bin                                                        │
+│                   ┆ amdgpu/raven_mec.bin                                                         │
+│                   ┆ amdgpu/raven_me.bin                                                          │
+│                   ┆ amdgpu/raven_pfp.bin                                                         │
+│                   ┆ amdgpu/raven_ce.bin                                                          │
+│                   ┆ amdgpu/vega20_rlc.bin                                                        │
+│                   ┆ amdgpu/vega20_mec2.bin                                                       │
+│                   ┆ amdgpu/vega20_mec.bin                                                        │
+│                   ┆ amdgpu/vega20_me.bin                                                         │
+│                   ┆ amdgpu/vega20_pfp.bin                                                        │
+│                   ┆ amdgpu/vega20_ce.bin                                                         │
+│                   ┆ amdgpu/vega12_rlc.bin                                                        │
+│                   ┆ amdgpu/vega12_mec2.bin                                                       │
+│                   ┆ amdgpu/vega12_mec.bin                                                        │
+│                   ┆ amdgpu/vega12_me.bin                                                         │
+│                   ┆ amdgpu/vega12_pfp.bin                                                        │
+│                   ┆ amdgpu/vega12_ce.bin                                                         │
+│                   ┆ amdgpu/vega10_rlc.bin                                                        │
+│                   ┆ amdgpu/vega10_mec2.bin                                                       │
+│                   ┆ amdgpu/vega10_mec.bin                                                        │
+│                   ┆ amdgpu/vega10_me.bin                                                         │
+│                   ┆ amdgpu/vega10_pfp.bin                                                        │
+│                   ┆ amdgpu/vega10_ce.bin                                                         │
+│                   ┆ amdgpu/gc_10_3_7_rlc.bin                                                     │
+│                   ┆ amdgpu/gc_10_3_7_mec2.bin                                                    │
+│                   ┆ amdgpu/gc_10_3_7_mec.bin                                                     │
+│                   ┆ amdgpu/gc_10_3_7_me.bin                                                      │
+│                   ┆ amdgpu/gc_10_3_7_pfp.bin                                                     │
+│                   ┆ amdgpu/gc_10_3_7_ce.bin                                                      │
+│                   ┆ amdgpu/gc_10_3_6_rlc.bin                                                     │
+│                   ┆ amdgpu/gc_10_3_6_mec2.bin                                                    │
+│                   ┆ amdgpu/gc_10_3_6_mec.bin                                                     │
+│                   ┆ amdgpu/gc_10_3_6_me.bin                                                      │
+│                   ┆ amdgpu/gc_10_3_6_pfp.bin                                                     │
+│                   ┆ amdgpu/gc_10_3_6_ce.bin                                                      │
+│                   ┆ amdgpu/cyan_skillfish2_rlc.bin                                               │
+│                   ┆ amdgpu/cyan_skillfish2_mec2.bin                                              │
+│                   ┆ amdgpu/cyan_skillfish2_mec.bin                                               │
+│                   ┆ amdgpu/cyan_skillfish2_me.bin                                                │
+│                   ┆ amdgpu/cyan_skillfish2_pfp.bin                                               │
+│                   ┆ amdgpu/cyan_skillfish2_ce.bin                                                │
+│                   ┆ amdgpu/yellow_carp_rlc.bin                                                   │
+│                   ┆ amdgpu/yellow_carp_mec2.bin                                                  │
+│                   ┆ amdgpu/yellow_carp_mec.bin                                                   │
+│                   ┆ amdgpu/yellow_carp_me.bin                                                    │
+│                   ┆ amdgpu/yellow_carp_pfp.bin                                                   │
+│                   ┆ amdgpu/yellow_carp_ce.bin                                                    │
+│                   ┆ amdgpu/beige_goby_rlc.bin                                                    │
+│                   ┆ amdgpu/beige_goby_mec2.bin                                                   │
+│                   ┆ amdgpu/beige_goby_mec.bin                                                    │
+│                   ┆ amdgpu/beige_goby_me.bin                                                     │
+│                   ┆ amdgpu/beige_goby_pfp.bin                                                    │
+│                   ┆ amdgpu/beige_goby_ce.bin                                                     │
+│                   ┆ amdgpu/dimgrey_cavefish_rlc.bin                                              │
+│                   ┆ amdgpu/dimgrey_cavefish_mec2.bin                                             │
+│                   ┆ amdgpu/dimgrey_cavefish_mec.bin                                              │
+│                   ┆ amdgpu/dimgrey_cavefish_me.bin                                               │
+│                   ┆ amdgpu/dimgrey_cavefish_pfp.bin                                              │
+│                   ┆ amdgpu/dimgrey_cavefish_ce.bin                                               │
+│                   ┆ amdgpu/vangogh_rlc.bin                                                       │
+│                   ┆ amdgpu/vangogh_mec2.bin                                                      │
+│                   ┆ amdgpu/vangogh_mec.bin                                                       │
+│                   ┆ amdgpu/vangogh_me.bin                                                        │
+│                   ┆ amdgpu/vangogh_pfp.bin                                                       │
+│                   ┆ amdgpu/vangogh_ce.bin                                                        │
+│                   ┆ amdgpu/navy_flounder_rlc.bin                                                 │
+│                   ┆ amdgpu/navy_flounder_mec2.bin                                                │
+│                   ┆ amdgpu/navy_flounder_mec.bin                                                 │
+│                   ┆ amdgpu/navy_flounder_me.bin                                                  │
+│                   ┆ amdgpu/navy_flounder_pfp.bin                                                 │
+│                   ┆ amdgpu/navy_flounder_ce.bin                                                  │
+│                   ┆ amdgpu/sienna_cichlid_rlc.bin                                                │
+│                   ┆ amdgpu/sienna_cichlid_mec2.bin                                               │
+│                   ┆ amdgpu/sienna_cichlid_mec.bin                                                │
+│                   ┆ amdgpu/sienna_cichlid_me.bin                                                 │
+│                   ┆ amdgpu/sienna_cichlid_pfp.bin                                                │
+│                   ┆ amdgpu/sienna_cichlid_ce.bin                                                 │
+│                   ┆ amdgpu/navi12_rlc.bin                                                        │
+│                   ┆ amdgpu/navi12_mec2.bin                                                       │
+│                   ┆ amdgpu/navi12_mec.bin                                                        │
+│                   ┆ amdgpu/navi12_me.bin                                                         │
+│                   ┆ amdgpu/navi12_pfp.bin                                                        │
+│                   ┆ amdgpu/navi12_ce.bin                                                         │
+│                   ┆ amdgpu/navi14_rlc.bin                                                        │
+│                   ┆ amdgpu/navi14_mec2.bin                                                       │
+│                   ┆ amdgpu/navi14_mec.bin                                                        │
+│                   ┆ amdgpu/navi14_me.bin                                                         │
+│                   ┆ amdgpu/navi14_pfp.bin                                                        │
+│                   ┆ amdgpu/navi14_ce.bin                                                         │
+│                   ┆ amdgpu/navi14_mec2_wks.bin                                                   │
+│                   ┆ amdgpu/navi14_mec_wks.bin                                                    │
+│                   ┆ amdgpu/navi14_me_wks.bin                                                     │
+│                   ┆ amdgpu/navi14_pfp_wks.bin                                                    │
+│                   ┆ amdgpu/navi14_ce_wks.bin                                                     │
+│                   ┆ amdgpu/navi10_rlc.bin                                                        │
+│                   ┆ amdgpu/navi10_mec2.bin                                                       │
+│                   ┆ amdgpu/navi10_mec.bin                                                        │
+│                   ┆ amdgpu/navi10_me.bin                                                         │
+│                   ┆ amdgpu/navi10_pfp.bin                                                        │
+│                   ┆ amdgpu/navi10_ce.bin                                                         │
+│                   ┆ amdgpu/gc_11_0_4_imu.bin                                                     │
+│                   ┆ amdgpu/gc_11_0_3_imu.bin                                                     │
+│                   ┆ amdgpu/gc_11_0_2_imu.bin                                                     │
+│                   ┆ amdgpu/gc_11_0_1_imu.bin                                                     │
+│                   ┆ amdgpu/gc_11_0_0_imu.bin                                                     │
+│                   ┆ amdgpu/gc_11_0_4_rlc.bin                                                     │
+│                   ┆ amdgpu/gc_11_0_4_mec.bin                                                     │
+│                   ┆ amdgpu/gc_11_0_4_me.bin                                                      │
+│                   ┆ amdgpu/gc_11_0_4_pfp.bin                                                     │
+│                   ┆ amdgpu/gc_11_0_3_rlc.bin                                                     │
+│                   ┆ amdgpu/gc_11_0_3_mec.bin                                                     │
+│                   ┆ amdgpu/gc_11_0_3_me.bin                                                      │
+│                   ┆ amdgpu/gc_11_0_3_pfp.bin                                                     │
+│                   ┆ amdgpu/gc_11_0_2_rlc.bin                                                     │
+│                   ┆ amdgpu/gc_11_0_2_mec.bin                                                     │
+│                   ┆ amdgpu/gc_11_0_2_me.bin                                                      │
+│                   ┆ amdgpu/gc_11_0_2_pfp.bin                                                     │
+│                   ┆ amdgpu/gc_11_0_1_rlc.bin                                                     │
+│                   ┆ amdgpu/gc_11_0_1_mec.bin                                                     │
+│                   ┆ amdgpu/gc_11_0_1_me.bin                                                      │
+│                   ┆ amdgpu/gc_11_0_1_pfp.bin                                                     │
+│                   ┆ amdgpu/gc_11_0_0_toc.bin                                                     │
+│                   ┆ amdgpu/gc_11_0_0_rlc.bin                                                     │
+│                   ┆ amdgpu/gc_11_0_0_mec.bin                                                     │
+│                   ┆ amdgpu/gc_11_0_0_me.bin                                                      │
+│                   ┆ amdgpu/gc_11_0_0_pfp.bin                                                     │
+│                   ┆ amdgpu/topaz_sdma1.bin                                                       │
+│                   ┆ amdgpu/topaz_sdma.bin                                                        │
+│                   ┆ amdgpu/vegam_sdma1.bin                                                       │
+│                   ┆ amdgpu/vegam_sdma.bin                                                        │
+│                   ┆ amdgpu/polaris12_sdma1.bin                                                   │
+│                   ┆ amdgpu/polaris12_sdma.bin                                                    │
+│                   ┆ amdgpu/polaris11_sdma1.bin                                                   │
+│                   ┆ amdgpu/polaris11_sdma.bin                                                    │
+│                   ┆ amdgpu/polaris10_sdma1.bin                                                   │
+│                   ┆ amdgpu/polaris10_sdma.bin                                                    │
+│                   ┆ amdgpu/stoney_sdma.bin                                                       │
+│                   ┆ amdgpu/fiji_sdma1.bin                                                        │
+│                   ┆ amdgpu/fiji_sdma.bin                                                         │
+│                   ┆ amdgpu/carrizo_sdma1.bin                                                     │
+│                   ┆ amdgpu/carrizo_sdma.bin                                                      │
+│                   ┆ amdgpu/tonga_sdma1.bin                                                       │
+│                   ┆ amdgpu/tonga_sdma.bin                                                        │
+│                   ┆ amdgpu/aldebaran_sdma.bin                                                    │
+│                   ┆ amdgpu/green_sardine_sdma.bin                                                │
+│                   ┆ amdgpu/renoir_sdma.bin                                                       │
+│                   ┆ amdgpu/arcturus_sdma.bin                                                     │
+│                   ┆ amdgpu/raven2_sdma.bin                                                       │
+│                   ┆ amdgpu/picasso_sdma.bin                                                      │
+│                   ┆ amdgpu/raven_sdma.bin                                                        │
+│                   ┆ amdgpu/vega20_sdma1.bin                                                      │
+│                   ┆ amdgpu/vega20_sdma.bin                                                       │
+│                   ┆ amdgpu/vega12_sdma1.bin                                                      │
+│                   ┆ amdgpu/vega12_sdma.bin                                                       │
+│                   ┆ amdgpu/vega10_sdma1.bin                                                      │
+│                   ┆ amdgpu/vega10_sdma.bin                                                       │
+│                   ┆ amdgpu/cyan_skillfish2_sdma1.bin                                             │
+│                   ┆ amdgpu/cyan_skillfish2_sdma.bin                                              │
+│                   ┆ amdgpu/navi12_sdma1.bin                                                      │
+│                   ┆ amdgpu/navi12_sdma.bin                                                       │
+│                   ┆ amdgpu/navi14_sdma1.bin                                                      │
+│                   ┆ amdgpu/navi14_sdma.bin                                                       │
+│                   ┆ amdgpu/navi10_sdma1.bin                                                      │
+│                   ┆ amdgpu/navi10_sdma.bin                                                       │
+│                   ┆ amdgpu/sdma_5_2_7.bin                                                        │
+│                   ┆ amdgpu/sdma_5_2_6.bin                                                        │
+│                   ┆ amdgpu/yellow_carp_sdma.bin                                                  │
+│                   ┆ amdgpu/vangogh_sdma.bin                                                      │
+│                   ┆ amdgpu/beige_goby_sdma.bin                                                   │
+│                   ┆ amdgpu/dimgrey_cavefish_sdma.bin                                             │
+│                   ┆ amdgpu/navy_flounder_sdma.bin                                                │
+│                   ┆ amdgpu/sienna_cichlid_sdma.bin                                               │
+│                   ┆ amdgpu/sdma_6_0_3.bin                                                        │
+│                   ┆ amdgpu/sdma_6_0_2.bin                                                        │
+│                   ┆ amdgpu/sdma_6_0_1.bin                                                        │
+│                   ┆ amdgpu/sdma_6_0_0.bin                                                        │
+│                   ┆ amdgpu/sienna_cichlid_mes1.bin                                               │
+│                   ┆ amdgpu/sienna_cichlid_mes.bin                                                │
+│                   ┆ amdgpu/navi10_mes.bin                                                        │
+│                   ┆ amdgpu/gc_11_0_4_mes1.bin                                                    │
+│                   ┆ amdgpu/gc_11_0_4_mes.bin                                                     │
+│                   ┆ amdgpu/gc_11_0_3_mes1.bin                                                    │
+│                   ┆ amdgpu/gc_11_0_3_mes.bin                                                     │
+│                   ┆ amdgpu/gc_11_0_2_mes1.bin                                                    │
+│                   ┆ amdgpu/gc_11_0_2_mes.bin                                                     │
+│                   ┆ amdgpu/gc_11_0_1_mes1.bin                                                    │
+│                   ┆ amdgpu/gc_11_0_1_mes.bin                                                     │
+│                   ┆ amdgpu/gc_11_0_0_mes1.bin                                                    │
+│                   ┆ amdgpu/gc_11_0_0_mes.bin                                                     │
+│                   ┆ amdgpu/vega20_uvd.bin                                                        │
+│                   ┆ amdgpu/vega12_uvd.bin                                                        │
+│                   ┆ amdgpu/vega10_uvd.bin                                                        │
+│                   ┆ amdgpu/vegam_uvd.bin                                                         │
+│                   ┆ amdgpu/polaris12_uvd.bin                                                     │
+│                   ┆ amdgpu/polaris11_uvd.bin                                                     │
+│                   ┆ amdgpu/polaris10_uvd.bin                                                     │
+│                   ┆ amdgpu/stoney_uvd.bin                                                        │
+│                   ┆ amdgpu/fiji_uvd.bin                                                          │
+│                   ┆ amdgpu/carrizo_uvd.bin                                                       │
+│                   ┆ amdgpu/tonga_uvd.bin                                                         │
+│                   ┆ amdgpu/mullins_uvd.bin                                                       │
+│                   ┆ amdgpu/hawaii_uvd.bin                                                        │
+│                   ┆ amdgpu/kaveri_uvd.bin                                                        │
+│                   ┆ amdgpu/kabini_uvd.bin                                                        │
+│                   ┆ amdgpu/bonaire_uvd.bin                                                       │
+│                   ┆ amdgpu/oland_uvd.bin                                                         │
+│                   ┆ amdgpu/pitcairn_uvd.bin                                                      │
+│                   ┆ amdgpu/verde_uvd.bin                                                         │
+│                   ┆ amdgpu/tahiti_uvd.bin                                                        │
+│                   ┆ amdgpu/vega20_vce.bin                                                        │
+│                   ┆ amdgpu/vega12_vce.bin                                                        │
+│                   ┆ amdgpu/vega10_vce.bin                                                        │
+│                   ┆ amdgpu/vegam_vce.bin                                                         │
+│                   ┆ amdgpu/polaris12_vce.bin                                                     │
+│                   ┆ amdgpu/polaris11_vce.bin                                                     │
+│                   ┆ amdgpu/polaris10_vce.bin                                                     │
+│                   ┆ amdgpu/stoney_vce.bin                                                        │
+│                   ┆ amdgpu/fiji_vce.bin                                                          │
+│                   ┆ amdgpu/carrizo_vce.bin                                                       │
+│                   ┆ amdgpu/tonga_vce.bin                                                         │
+│                   ┆ amdgpu/mullins_vce.bin                                                       │
+│                   ┆ amdgpu/hawaii_vce.bin                                                        │
+│                   ┆ amdgpu/kaveri_vce.bin                                                        │
+│                   ┆ amdgpu/kabini_vce.bin                                                        │
+│                   ┆ amdgpu/bonaire_vce.bin                                                       │
+│                   ┆ amdgpu/vcn_4_0_4.bin                                                         │
+│                   ┆ amdgpu/vcn_4_0_2.bin                                                         │
+│                   ┆ amdgpu/vcn_4_0_0.bin                                                         │
+│                   ┆ amdgpu/vcn_3_1_2.bin                                                         │
+│                   ┆ amdgpu/yellow_carp_vcn.bin                                                   │
+│                   ┆ amdgpu/beige_goby_vcn.bin                                                    │
+│                   ┆ amdgpu/dimgrey_cavefish_vcn.bin                                              │
+│                   ┆ amdgpu/vangogh_vcn.bin                                                       │
+│                   ┆ amdgpu/navy_flounder_vcn.bin                                                 │
+│                   ┆ amdgpu/sienna_cichlid_vcn.bin                                                │
+│                   ┆ amdgpu/navi12_vcn.bin                                                        │
+│                   ┆ amdgpu/navi14_vcn.bin                                                        │
+│                   ┆ amdgpu/navi10_vcn.bin                                                        │
+│                   ┆ amdgpu/aldebaran_vcn.bin                                                     │
+│                   ┆ amdgpu/green_sardine_vcn.bin                                                 │
+│                   ┆ amdgpu/renoir_vcn.bin                                                        │
+│                   ┆ amdgpu/arcturus_vcn.bin                                                      │
+│                   ┆ amdgpu/raven2_vcn.bin                                                        │
+│                   ┆ amdgpu/picasso_vcn.bin                                                       │
+│                   ┆ amdgpu/raven_vcn.bin                                                         │
+│                   ┆ amdgpu/beige_goby_smc.bin                                                    │
+│                   ┆ amdgpu/dimgrey_cavefish_smc.bin                                              │
+│                   ┆ amdgpu/navy_flounder_smc.bin                                                 │
+│                   ┆ amdgpu/sienna_cichlid_smc.bin                                                │
+│                   ┆ amdgpu/navi12_smc.bin                                                        │
+│                   ┆ amdgpu/navi14_smc.bin                                                        │
+│                   ┆ amdgpu/navi10_smc.bin                                                        │
+│                   ┆ amdgpu/arcturus_smc.bin                                                      │
+│                   ┆ amdgpu/smu_13_0_10.bin                                                       │
+│                   ┆ amdgpu/smu_13_0_7.bin                                                        │
+│                   ┆ amdgpu/smu_13_0_0.bin                                                        │
+│                   ┆ amdgpu/aldebaran_smc.bin                                                     │
+│                   ┆ amdgpu/vega20_smc.bin                                                        │
+│                   ┆ amdgpu/vega12_smc.bin                                                        │
+│                   ┆ amdgpu/vega10_acg_smc.bin                                                    │
+│                   ┆ amdgpu/vega10_smc.bin                                                        │
+│                   ┆ amdgpu/vegam_smc.bin                                                         │
+│                   ┆ amdgpu/polaris12_k_smc.bin                                                   │
+│                   ┆ amdgpu/polaris12_smc.bin                                                     │
+│                   ┆ amdgpu/polaris11_k2_smc.bin                                                  │
+│                   ┆ amdgpu/polaris11_k_smc.bin                                                   │
+│                   ┆ amdgpu/polaris11_smc_sk.bin                                                  │
+│                   ┆ amdgpu/polaris11_smc.bin                                                     │
+│                   ┆ amdgpu/polaris10_k2_smc.bin                                                  │
+│                   ┆ amdgpu/polaris10_k_smc.bin                                                   │
+│                   ┆ amdgpu/polaris10_smc_sk.bin                                                  │
+│                   ┆ amdgpu/polaris10_smc.bin                                                     │
+│                   ┆ amdgpu/fiji_smc.bin                                                          │
+│                   ┆ amdgpu/tonga_k_smc.bin                                                       │
+│                   ┆ amdgpu/tonga_smc.bin                                                         │
+│                   ┆ amdgpu/topaz_k_smc.bin                                                       │
+│                   ┆ amdgpu/topaz_smc.bin                                                         │
+│                   ┆ amdgpu/hawaii_k_smc.bin                                                      │
+│                   ┆ amdgpu/hawaii_smc.bin                                                        │
+│                   ┆ amdgpu/bonaire_k_smc.bin                                                     │
+│                   ┆ amdgpu/bonaire_smc.bin                                                       │
+│                   ┆ amdgpu/banks_k_2_smc.bin                                                     │
+│                   ┆ amdgpu/hainan_k_smc.bin                                                      │
+│                   ┆ amdgpu/hainan_smc.bin                                                        │
+│                   ┆ amdgpu/oland_k_smc.bin                                                       │
+│                   ┆ amdgpu/oland_smc.bin                                                         │
+│                   ┆ amdgpu/verde_k_smc.bin                                                       │
+│                   ┆ amdgpu/verde_smc.bin                                                         │
+│                   ┆ amdgpu/pitcairn_k_smc.bin                                                    │
+│                   ┆ amdgpu/pitcairn_smc.bin                                                      │
+│                   ┆ amdgpu/tahiti_smc.bin                                                        │
+│                   ┆ amdgpu/navi12_dmcu.bin                                                       │
+│                   ┆ amdgpu/raven_dmcu.bin                                                        │
+│                   ┆ amdgpu/dcn_3_2_1_dmcub.bin                                                   │
+│                   ┆ amdgpu/dcn_3_2_0_dmcub.bin                                                   │
+│                   ┆ amdgpu/dcn_3_1_6_dmcub.bin                                                   │
+│                   ┆ amdgpu/dcn_3_1_5_dmcub.bin                                                   │
+│                   ┆ amdgpu/dcn_3_1_4_dmcub.bin                                                   │
+│                   ┆ amdgpu/yellow_carp_dmcub.bin                                                 │
+│                   ┆ amdgpu/beige_goby_dmcub.bin                                                  │
+│                   ┆ amdgpu/dimgrey_cavefish_dmcub.bin                                            │
+│                   ┆ amdgpu/vangogh_dmcub.bin                                                     │
+│                   ┆ amdgpu/green_sardine_dmcub.bin                                               │
+│                   ┆ amdgpu/navy_flounder_dmcub.bin                                               │
+│                   ┆ amdgpu/sienna_cichlid_dmcub.bin                                              │
+│                   ┆ amdgpu/renoir_dmcub.bin                                                      │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ Alias             ┆ pci:v00001002d*sv*sd*bc03sc80i00*                                            │
+│                   ┆ pci:v00001002d*sv*sd*bc03sc00i00*                                            │
+│                   ┆ pci:v00001002d0000743Fsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00007424sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00007423sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00007422sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00007421sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00007420sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000143Fsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000013FEsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00007410sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000740Fsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000740Csv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00007408sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000073FFsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000073EFsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000073EDsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000073ECsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000073EBsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000073EAsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000073E9sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000073E8sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000073E3sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000073E2sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000073E1sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000073E0sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000073DFsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000073DEsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000073DDsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000073DCsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000073DBsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000073DAsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000073C3sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000073C1sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000073C0sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00001681sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000164Dsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000073BFsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000073AFsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000073AEsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000073ADsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000073ACsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000073ABsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000073A9sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000073A8sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000073A5sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000073A3sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000073A2sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000073A1sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000073A0sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00007362sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00007360sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000164Csv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00001638sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00001636sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000015E7sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000734Fsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00007347sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00007341sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00007340sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000731Fsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000731Esv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000731Bsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000731Asv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00007319sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00007318sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00007312sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00007310sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00007390sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000738Esv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00007388sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000738Csv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000015D8sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000015DDsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000066AFsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000066A7sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000066A4sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000066A3sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000066A2sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000066A1sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000066A0sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000069AFsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000069A3sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000069A2sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000069A1sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000069A0sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000687Fsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000686Fsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000686Esv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000686Dsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000686Csv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000686Bsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000686Asv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006869sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006868sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006867sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006864sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006863sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006862sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006861sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006860sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000694Fsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000694Esv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000694Csv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000699Fsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006997sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006995sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006987sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006986sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006985sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006981sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006980sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006FDFsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000067CFsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000067CCsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000067CAsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000067C9sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000067C8sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000067DFsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000067D0sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000067C7sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000067C4sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000067C2sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000067C1sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000067C0sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000067E9sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000067E7sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000067E1sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000067FFsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000067EFsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000067EBsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000067E8sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000067E3sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000067E0sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000098E4sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00009877sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00009876sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00009875sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00009874sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00009870sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000730Fsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00007300sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006939sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006938sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006930sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000692Fsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000692Bsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006929sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006928sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006921sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006920sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006907sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006903sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006902sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006901sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006900sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000985Fsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000985Esv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000985Dsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000985Csv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000985Bsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000985Asv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00009859sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00009858sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00009857sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00009856sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00009855sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00009854sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00009853sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00009852sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00009851sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00009850sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000983Fsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000983Esv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000983Dsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000983Csv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000983Bsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000983Asv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00009839sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00009838sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00009837sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00009836sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00009835sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00009834sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00009833sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00009832sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00009831sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00009830sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000067BEsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000067BAsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000067B9sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000067B8sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000067B1sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000067B0sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000067AAsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000067A9sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000067A8sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000067A2sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000067A1sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d000067A0sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000665Fsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000665Dsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000665Csv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006658sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006651sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006650sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006649sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006647sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006646sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006641sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006640sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000131Dsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000131Csv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000131Bsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00001318sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00001317sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00001316sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00001315sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00001313sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00001312sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00001311sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00001310sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000130Fsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000130Esv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000130Dsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000130Csv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000130Bsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000130Asv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00001309sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00001307sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00001306sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00001305sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00001304sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000666Fsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006667sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006665sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006664sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006663sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006660sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000683Fsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000683Dsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000683Bsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006839sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006838sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006837sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006835sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006831sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006830sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000682Fsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000682Dsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000682Csv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000682Bsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000682Asv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006829sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006828sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006827sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006826sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006825sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006824sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006823sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006822sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006821sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006820sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006631sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006623sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006621sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006620sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006617sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006613sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006611sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006610sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006608sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006607sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006606sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006605sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006604sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006603sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006602sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006601sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006600sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006819sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006818sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006817sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006816sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006811sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006810sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006809sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006808sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006806sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006802sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006801sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006800sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000679Fsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000679Esv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000679Bsv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000679Asv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006799sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006798sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006792sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006791sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006790sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d0000678Asv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006788sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006784sv*sd*bc*sc*i*                                         │
+│                   ┆ pci:v00001002d00006780sv*sd*bc*sc*i*                                         │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ Dependencies      ┆ ttm,drm_display_helper,drm_buddy,i2c-algo-bit,gpu-sched,video,drm_ttm_helper │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ Soft Dependencies ┆                                                                              │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ In Tree           ┆ true                                                                         │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ Retpoline         ┆ true                                                                         │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ Staging           ┆ false                                                                        │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ Version Magic     ┆ 6.3.1-arch2-1 SMP preempt mod_unload                                         │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ Source Checksum   ┆ 2C61BDDFF0EFE061322EC15                                                      │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ Parameters        ┆ ╭────────────────┬────────────────┬────────╮                                 │
+│                   ┆ │ Name           ┆ Description    ┆ Type   │                                 │
+│                   ┆ ╞════════════════╪════════════════╪════════╡                                 │
+│                   ┆ │ abmlevel       ┆ ABM level (0 = ┆ uint   │                                 │
+│                   ┆ │                ┆ off (default), ┆        │                                 │
+│                   ┆ │                ┆ 1-4 =          ┆        │                                 │
+│                   ┆ │                ┆ backlight      ┆        │                                 │
+│                   ┆ │                ┆ reduction      ┆        │                                 │
+│                   ┆ │                ┆ level)         ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ aspm           ┆ ASPM support   ┆ int    │                                 │
+│                   ┆ │                ┆ (1 = enable, 0 ┆        │                                 │
+│                   ┆ │                ┆ = disable, -1  ┆        │                                 │
+│                   ┆ │                ┆ = auto)        ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ async_gfx_ring ┆ Asynchronous   ┆ int    │                                 │
+│                   ┆ │                ┆ GFX rings that ┆        │                                 │
+│                   ┆ │                ┆ could be       ┆        │                                 │
+│                   ┆ │                ┆ configured     ┆        │                                 │
+│                   ┆ │                ┆ with either    ┆        │                                 │
+│                   ┆ │                ┆ different      ┆        │                                 │
+│                   ┆ │                ┆ priorities     ┆        │                                 │
+│                   ┆ │                ┆ (HP3D ring and ┆        │                                 │
+│                   ┆ │                ┆ LP3D ring), or ┆        │                                 │
+│                   ┆ │                ┆ equal          ┆        │                                 │
+│                   ┆ │                ┆ priorities (0  ┆        │                                 │
+│                   ┆ │                ┆ = disabled, 1  ┆        │                                 │
+│                   ┆ │                ┆ = enabled      ┆        │                                 │
+│                   ┆ │                ┆ (default))     ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ audio          ┆ Audio enable   ┆ int    │                                 │
+│                   ┆ │                ┆ (-1 = auto, 0  ┆        │                                 │
+│                   ┆ │                ┆ = disable, 1 = ┆        │                                 │
+│                   ┆ │                ┆ enable)        ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ backlight      ┆ Backlight      ┆ bint   │                                 │
+│                   ┆ │                ┆ control (0 =   ┆        │                                 │
+│                   ┆ │                ┆ pwm, 1 = aux,  ┆        │                                 │
+│                   ┆ │                ┆ -1 auto        ┆        │                                 │
+│                   ┆ │                ┆ (default))     ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ bad_page_thres ┆ Bad page       ┆ int    │                                 │
+│                   ┆ │ hold           ┆ threshold(-1 = ┆        │                                 │
+│                   ┆ │                ┆ ignore         ┆        │                                 │
+│                   ┆ │                ┆ threshold      ┆        │                                 │
+│                   ┆ │                ┆ (default       ┆        │                                 │
+│                   ┆ │                ┆ value), 0 =    ┆        │                                 │
+│                   ┆ │                ┆ disable bad    ┆        │                                 │
+│                   ┆ │                ┆ page           ┆        │                                 │
+│                   ┆ │                ┆ retirement, -2 ┆        │                                 │
+│                   ┆ │                ┆ = driver sets  ┆        │                                 │
+│                   ┆ │                ┆ threshold)     ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ bapm           ┆ BAPM support   ┆ int    │                                 │
+│                   ┆ │                ┆ (1 = enable, 0 ┆        │                                 │
+│                   ┆ │                ┆ = disable, -1  ┆        │                                 │
+│                   ┆ │                ┆ = auto)        ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ cg_mask        ┆ Clockgating    ┆ ullong │                                 │
+│                   ┆ │                ┆ flags mask (0  ┆        │                                 │
+│                   ┆ │                ┆ = disable      ┆        │                                 │
+│                   ┆ │                ┆ clock gating)  ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ cik_support    ┆ CIK support (1 ┆ int    │                                 │
+│                   ┆ │                ┆ = enabled, 0 = ┆        │                                 │
+│                   ┆ │                ┆ disabled       ┆        │                                 │
+│                   ┆ │                ┆ (default))     ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ compute_multip ┆ Force compute  ┆ int    │                                 │
+│                   ┆ │ ipe            ┆ queues to be   ┆        │                                 │
+│                   ┆ │                ┆ spread across  ┆        │                                 │
+│                   ┆ │                ┆ pipes (1 =     ┆        │                                 │
+│                   ┆ │                ┆ enable, 0 =    ┆        │                                 │
+│                   ┆ │                ┆ disable, -1 =  ┆        │                                 │
+│                   ┆ │                ┆ auto)          ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ cwsr_enable    ┆ CWSR enable (0 ┆ int    │                                 │
+│                   ┆ │                ┆ = Off, 1 = On  ┆        │                                 │
+│                   ┆ │                ┆ (Default))     ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ dc             ┆ Display Core   ┆ int    │                                 │
+│                   ┆ │                ┆ driver (1 =    ┆        │                                 │
+│                   ┆ │                ┆ enable, 0 =    ┆        │                                 │
+│                   ┆ │                ┆ disable, -1 =  ┆        │                                 │
+│                   ┆ │                ┆ auto           ┆        │                                 │
+│                   ┆ │                ┆ (default))     ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ dcdebugmask    ┆ all debug      ┆ uint   │                                 │
+│                   ┆ │                ┆ options        ┆        │                                 │
+│                   ┆ │                ┆ disabled       ┆        │                                 │
+│                   ┆ │                ┆ (default))     ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ dcfeaturemask  ┆ all stable DC  ┆ uint   │                                 │
+│                   ┆ │                ┆ features       ┆        │                                 │
+│                   ┆ │                ┆ enabled        ┆        │                                 │
+│                   ┆ │                ┆ (default))     ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ debug_eviction ┆ enable         ┆ bool   │                                 │
+│                   ┆ │ s              ┆ eviction debug ┆        │                                 │
+│                   ┆ │                ┆ messages       ┆        │                                 │
+│                   ┆ │                ┆ (false =       ┆        │                                 │
+│                   ┆ │                ┆ default)       ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ debug_largebar ┆ Debug          ┆ int    │                                 │
+│                   ┆ │                ┆ large-bar flag ┆        │                                 │
+│                   ┆ │                ┆ used to        ┆        │                                 │
+│                   ┆ │                ┆ simulate       ┆        │                                 │
+│                   ┆ │                ┆ large-bar      ┆        │                                 │
+│                   ┆ │                ┆ capability on  ┆        │                                 │
+│                   ┆ │                ┆ non-large bar  ┆        │                                 │
+│                   ┆ │                ┆ machine (0 =   ┆        │                                 │
+│                   ┆ │                ┆ disable, 1 =   ┆        │                                 │
+│                   ┆ │                ┆ enable)        ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ deep_color     ┆ Deep Color     ┆ int    │                                 │
+│                   ┆ │                ┆ support (1 =   ┆        │                                 │
+│                   ┆ │                ┆ enable, 0 =    ┆        │                                 │
+│                   ┆ │                ┆ disable        ┆        │                                 │
+│                   ┆ │                ┆ (default))     ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ disable_cu     ┆ Disable CUs    ┆ charp  │                                 │
+│                   ┆ │                ┆ (se.sh.cu,...) ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ discovery      ┆ Allow driver   ┆ int    │                                 │
+│                   ┆ │                ┆ to discover    ┆        │                                 │
+│                   ┆ │                ┆ hardware IPs   ┆        │                                 │
+│                   ┆ │                ┆ from IP        ┆        │                                 │
+│                   ┆ │                ┆ Discovery      ┆        │                                 │
+│                   ┆ │                ┆ table at the   ┆        │                                 │
+│                   ┆ │                ┆ top of VRAM    ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ disp_priority  ┆ Display        ┆ int    │                                 │
+│                   ┆ │                ┆ Priority (0 =  ┆        │                                 │
+│                   ┆ │                ┆ auto, 1 =      ┆        │                                 │
+│                   ┆ │                ┆ normal, 2 =    ┆        │                                 │
+│                   ┆ │                ┆ high)          ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ dpm            ┆ DPM support (1 ┆ int    │                                 │
+│                   ┆ │                ┆ = enable, 0 =  ┆        │                                 │
+│                   ┆ │                ┆ disable, -1 =  ┆        │                                 │
+│                   ┆ │                ┆ auto)          ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ emu_mode       ┆ Emulation      ┆ int    │                                 │
+│                   ┆ │                ┆ mode, (1 =     ┆        │                                 │
+│                   ┆ │                ┆ enable, 0 =    ┆        │                                 │
+│                   ┆ │                ┆ disable)       ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ exp_hw_support ┆ experimental   ┆ int    │                                 │
+│                   ┆ │                ┆ hw support (1  ┆        │                                 │
+│                   ┆ │                ┆ = enable, 0 =  ┆        │                                 │
+│                   ┆ │                ┆ disable        ┆        │                                 │
+│                   ┆ │                ┆ (default))     ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ force_asic_typ ┆ A non negative ┆ int    │                                 │
+│                   ┆ │ e              ┆ value used to  ┆        │                                 │
+│                   ┆ │                ┆ specify the    ┆        │                                 │
+│                   ┆ │                ┆ asic type for  ┆        │                                 │
+│                   ┆ │                ┆ all supported  ┆        │                                 │
+│                   ┆ │                ┆ GPUs           ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ forcelongtrain ┆ force memory   ┆ uint   │                                 │
+│                   ┆ │ ing            ┆ long training  ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ freesync_video ┆ Enable         ┆ uint   │                                 │
+│                   ┆ │                ┆ freesync       ┆        │                                 │
+│                   ┆ │                ┆ modesetting    ┆        │                                 │
+│                   ┆ │                ┆ optimization   ┆        │                                 │
+│                   ┆ │                ┆ feature (0 =   ┆        │                                 │
+│                   ┆ │                ┆ off (default), ┆        │                                 │
+│                   ┆ │                ┆ 1 = on)        ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ fw_load_type   ┆ firmware       ┆ int    │                                 │
+│                   ┆ │                ┆ loading type   ┆        │                                 │
+│                   ┆ │                ┆ (3 = rlc       ┆        │                                 │
+│                   ┆ │                ┆ backdoor       ┆        │                                 │
+│                   ┆ │                ┆ autoload if    ┆        │                                 │
+│                   ┆ │                ┆ supported, 2 = ┆        │                                 │
+│                   ┆ │                ┆ smu load if    ┆        │                                 │
+│                   ┆ │                ┆ supported, 1 = ┆        │                                 │
+│                   ┆ │                ┆ psp load, 0 =  ┆        │                                 │
+│                   ┆ │                ┆ force direct   ┆        │                                 │
+│                   ┆ │                ┆ if supported,  ┆        │                                 │
+│                   ┆ │                ┆ -1 = auto)     ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ gartsize       ┆ Size of kernel ┆ uint   │                                 │
+│                   ┆ │                ┆ GART to setup  ┆        │                                 │
+│                   ┆ │                ┆ in megabytes   ┆        │                                 │
+│                   ┆ │                ┆ (32, 64, etc., ┆        │                                 │
+│                   ┆ │                ┆ -1=auto)       ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ gpu_recovery   ┆ Enable GPU     ┆ int    │                                 │
+│                   ┆ │                ┆ recovery       ┆        │                                 │
+│                   ┆ │                ┆ mechanism, (1  ┆        │                                 │
+│                   ┆ │                ┆ = enable, 0 =  ┆        │                                 │
+│                   ┆ │                ┆ disable, -1 =  ┆        │                                 │
+│                   ┆ │                ┆ auto)          ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ gttsize        ┆ Size of the    ┆ int    │                                 │
+│                   ┆ │                ┆ GTT userspace  ┆        │                                 │
+│                   ┆ │                ┆ domain in      ┆        │                                 │
+│                   ┆ │                ┆ megabytes (-1  ┆        │                                 │
+│                   ┆ │                ┆ = auto)        ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ halt_if_hws_ha ┆ Halt if HWS    ┆ int    │                                 │
+│                   ┆ │ ng             ┆ hang is        ┆        │                                 │
+│                   ┆ │                ┆ detected (0 =  ┆        │                                 │
+│                   ┆ │                ┆ off (default), ┆        │                                 │
+│                   ┆ │                ┆ 1 = on)        ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ hw_i2c         ┆ hw i2c engine  ┆ int    │                                 │
+│                   ┆ │                ┆ enable (0 =    ┆        │                                 │
+│                   ┆ │                ┆ disable)       ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ hws_gws_suppor ┆ Assume MEC2 FW ┆ bool   │                                 │
+│                   ┆ │ t              ┆ supports GWS   ┆        │                                 │
+│                   ┆ │                ┆ barriers       ┆        │                                 │
+│                   ┆ │                ┆ (false = rely  ┆        │                                 │
+│                   ┆ │                ┆ on FW version  ┆        │                                 │
+│                   ┆ │                ┆ check          ┆        │                                 │
+│                   ┆ │                ┆ (Default),     ┆        │                                 │
+│                   ┆ │                ┆ true = force   ┆        │                                 │
+│                   ┆ │                ┆ supported)     ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ hws_max_conc_p ┆ Max #          ┆ int    │                                 │
+│                   ┆ │ roc            ┆ processes HWS  ┆        │                                 │
+│                   ┆ │                ┆ can execute    ┆        │                                 │
+│                   ┆ │                ┆ concurrently   ┆        │                                 │
+│                   ┆ │                ┆ when           ┆        │                                 │
+│                   ┆ │                ┆ sched_policy=0 ┆        │                                 │
+│                   ┆ │                ┆ (0 = no        ┆        │                                 │
+│                   ┆ │                ┆ concurrency,   ┆        │                                 │
+│                   ┆ │                ┆ #VMIDs for KFD ┆        │                                 │
+│                   ┆ │                ┆ = Maximum(defa ┆        │                                 │
+│                   ┆ │                ┆ ult))          ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ ignore_crat    ┆ Ignore CRAT    ┆ int    │                                 │
+│                   ┆ │                ┆ table during   ┆        │                                 │
+│                   ┆ │                ┆ KFD            ┆        │                                 │
+│                   ┆ │                ┆ initialization ┆        │                                 │
+│                   ┆ │                ┆ (0 = auto      ┆        │                                 │
+│                   ┆ │                ┆ (default), 1 = ┆        │                                 │
+│                   ┆ │                ┆ ignore CRAT)   ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ ip_block_mask  ┆ IP Block Mask  ┆ uint   │                                 │
+│                   ┆ │                ┆ (all blocks    ┆        │                                 │
+│                   ┆ │                ┆ enabled        ┆        │                                 │
+│                   ┆ │                ┆ (default))     ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ job_hang_limit ┆ how much time  ┆ int    │                                 │
+│                   ┆ │                ┆ allow a job    ┆        │                                 │
+│                   ┆ │                ┆ hang and not   ┆        │                                 │
+│                   ┆ │                ┆ drop it        ┆        │                                 │
+│                   ┆ │                ┆ (default 0)    ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ lbpw           ┆ Load Balancing ┆ int    │                                 │
+│                   ┆ │                ┆ Per Watt       ┆        │                                 │
+│                   ┆ │                ┆ (LBPW) support ┆        │                                 │
+│                   ┆ │                ┆ (1 = enable, 0 ┆        │                                 │
+│                   ┆ │                ┆ = disable, -1  ┆        │                                 │
+│                   ┆ │                ┆ = auto)        ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ lockup_timeout ┆ GPU lockup     ┆ string │                                 │
+│                   ┆ │                ┆ timeout in ms  ┆        │                                 │
+│                   ┆ │                ┆ (default: for  ┆        │                                 │
+│                   ┆ │                ┆ bare metal     ┆        │                                 │
+│                   ┆ │                ┆ 10000 for      ┆        │                                 │
+│                   ┆ │                ┆ non-compute    ┆        │                                 │
+│                   ┆ │                ┆ jobs and 60000 ┆        │                                 │
+│                   ┆ │                ┆ for compute    ┆        │                                 │
+│                   ┆ │                ┆ jobs; for      ┆        │                                 │
+│                   ┆ │                ┆ passthrough or ┆        │                                 │
+│                   ┆ │                ┆ sriov, 10000   ┆        │                                 │
+│                   ┆ │                ┆ for all jobs.  ┆        │                                 │
+│                   ┆ │                ┆ 0: keep        ┆        │                                 │
+│                   ┆ │                ┆ default value. ┆        │                                 │
+│                   ┆ │                ┆ negative:      ┆        │                                 │
+│                   ┆ │                ┆ infinity       ┆        │                                 │
+│                   ┆ │                ┆ timeout),      ┆        │                                 │
+│                   ┆ │                ┆ format: for    ┆        │                                 │
+│                   ┆ │                ┆ bare metal     ┆        │                                 │
+│                   ┆ │                ┆ [Non-Compute]  ┆        │                                 │
+│                   ┆ │                ┆ or [GFX,Comput ┆        │                                 │
+│                   ┆ │                ┆ e,SDMA,Video]; ┆        │                                 │
+│                   ┆ │                ┆ for            ┆        │                                 │
+│                   ┆ │                ┆ passthrough or ┆        │                                 │
+│                   ┆ │                ┆ sriov [all     ┆        │                                 │
+│                   ┆ │                ┆ jobs] or [GFX, ┆        │                                 │
+│                   ┆ │                ┆ Compute,SDMA,V ┆        │                                 │
+│                   ┆ │                ┆ ideo].         ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ max_num_of_que ┆ Maximum number ┆ int    │                                 │
+│                   ┆ │ ues_per_device ┆ of supported   ┆        │                                 │
+│                   ┆ │                ┆ queues per     ┆        │                                 │
+│                   ┆ │                ┆ device (1 =    ┆        │                                 │
+│                   ┆ │                ┆ Minimum, 4096  ┆        │                                 │
+│                   ┆ │                ┆ = default)     ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ mcbp           ┆ Enable         ┆ int    │                                 │
+│                   ┆ │                ┆ Mid-command    ┆        │                                 │
+│                   ┆ │                ┆ buffer         ┆        │                                 │
+│                   ┆ │                ┆ preemption (0  ┆        │                                 │
+│                   ┆ │                ┆ = disabled     ┆        │                                 │
+│                   ┆ │                ┆ (default), 1 = ┆        │                                 │
+│                   ┆ │                ┆ enabled)       ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ mes            ┆ Enable Micro   ┆ int    │                                 │
+│                   ┆ │                ┆ Engine         ┆        │                                 │
+│                   ┆ │                ┆ Scheduler (0 = ┆        │                                 │
+│                   ┆ │                ┆ disabled       ┆        │                                 │
+│                   ┆ │                ┆ (default), 1 = ┆        │                                 │
+│                   ┆ │                ┆ enabled)       ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ mes_kiq        ┆ Enable Micro   ┆ int    │                                 │
+│                   ┆ │                ┆ Engine         ┆        │                                 │
+│                   ┆ │                ┆ Scheduler KIQ  ┆        │                                 │
+│                   ┆ │                ┆ (0 = disabled  ┆        │                                 │
+│                   ┆ │                ┆ (default), 1 = ┆        │                                 │
+│                   ┆ │                ┆ enabled)       ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ moverate       ┆ Maximum buffer ┆ int    │                                 │
+│                   ┆ │                ┆ migration rate ┆        │                                 │
+│                   ┆ │                ┆ in MB/s. (32,  ┆        │                                 │
+│                   ┆ │                ┆ 64, etc.,      ┆        │                                 │
+│                   ┆ │                ┆ -1=auto,       ┆        │                                 │
+│                   ┆ │                ┆ 0=1=disabled)  ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ msi            ┆ MSI support (1 ┆ int    │                                 │
+│                   ┆ │                ┆ = enable, 0 =  ┆        │                                 │
+│                   ┆ │                ┆ disable, -1 =  ┆        │                                 │
+│                   ┆ │                ┆ auto)          ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ no_queue_evict ┆ No queue       ┆ int    │                                 │
+│                   ┆ │ ion_on_vm_faul ┆ eviction on VM ┆        │                                 │
+│                   ┆ │ t              ┆ fault (0 =     ┆        │                                 │
+│                   ┆ │                ┆ queue          ┆        │                                 │
+│                   ┆ │                ┆ eviction, 1 =  ┆        │                                 │
+│                   ┆ │                ┆ no queue       ┆        │                                 │
+│                   ┆ │                ┆ eviction)      ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ no_system_mem_ ┆ disable system ┆ bool   │                                 │
+│                   ┆ │ limit          ┆ memory limit   ┆        │                                 │
+│                   ┆ │                ┆ (false =       ┆        │                                 │
+│                   ┆ │                ┆ default)       ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ noretry        ┆ Disable retry  ┆ int    │                                 │
+│                   ┆ │                ┆ faults (0 =    ┆        │                                 │
+│                   ┆ │                ┆ retry enabled, ┆        │                                 │
+│                   ┆ │                ┆ 1 = retry      ┆        │                                 │
+│                   ┆ │                ┆ disabled, -1   ┆        │                                 │
+│                   ┆ │                ┆ auto           ┆        │                                 │
+│                   ┆ │                ┆ (default))     ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ num_kcq        ┆ number of      ┆ int    │                                 │
+│                   ┆ │                ┆ kernel compute ┆        │                                 │
+│                   ┆ │                ┆ queue user     ┆        │                                 │
+│                   ┆ │                ┆ want to setup  ┆        │                                 │
+│                   ┆ │                ┆ (8 if set to   ┆        │                                 │
+│                   ┆ │                ┆ greater than 8 ┆        │                                 │
+│                   ┆ │                ┆ or less than   ┆        │                                 │
+│                   ┆ │                ┆ 0, only affect ┆        │                                 │
+│                   ┆ │                ┆ gfx 8+)        ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ pcie_gen2      ┆ PCIE Gen2 mode ┆ int    │                                 │
+│                   ┆ │                ┆ (-1 = auto, 0  ┆        │                                 │
+│                   ┆ │                ┆ = disable, 1 = ┆        │                                 │
+│                   ┆ │                ┆ enable)        ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ pcie_gen_cap   ┆ PCIE Gen Caps  ┆ uint   │                                 │
+│                   ┆ │                ┆ (0: autodetect ┆        │                                 │
+│                   ┆ │                ┆ (default))     ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ pcie_lane_cap  ┆ PCIE Lane Caps ┆ uint   │                                 │
+│                   ┆ │                ┆ (0: autodetect ┆        │                                 │
+│                   ┆ │                ┆ (default))     ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ pg_mask        ┆ Powergating    ┆ uint   │                                 │
+│                   ┆ │                ┆ flags mask (0  ┆        │                                 │
+│                   ┆ │                ┆ = disable      ┆        │                                 │
+│                   ┆ │                ┆ power gating)  ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ ppfeaturemask  ┆ all power      ┆ hexint │                                 │
+│                   ┆ │                ┆ features       ┆        │                                 │
+│                   ┆ │                ┆ enabled        ┆        │                                 │
+│                   ┆ │                ┆ (default))     ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ queue_preempti ┆ queue          ┆ int    │                                 │
+│                   ┆ │ on_timeout_ms  ┆ preemption     ┆        │                                 │
+│                   ┆ │                ┆ timeout in ms  ┆        │                                 │
+│                   ┆ │                ┆ (1 = Minimum,  ┆        │                                 │
+│                   ┆ │                ┆ 9000 =         ┆        │                                 │
+│                   ┆ │                ┆ default)       ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ ras_enable     ┆ Enable RAS     ┆ int    │                                 │
+│                   ┆ │                ┆ features on    ┆        │                                 │
+│                   ┆ │                ┆ the GPU (0 =   ┆        │                                 │
+│                   ┆ │                ┆ disable, 1 =   ┆        │                                 │
+│                   ┆ │                ┆ enable, -1 =   ┆        │                                 │
+│                   ┆ │                ┆ auto           ┆        │                                 │
+│                   ┆ │                ┆ (default))     ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ ras_mask       ┆ Mask of RAS    ┆ uint   │                                 │
+│                   ┆ │                ┆ features to    ┆        │                                 │
+│                   ┆ │                ┆ enable         ┆        │                                 │
+│                   ┆ │                ┆ (default       ┆        │                                 │
+│                   ┆ │                ┆ 0xffffffff),   ┆        │                                 │
+│                   ┆ │                ┆ only valid     ┆        │                                 │
+│                   ┆ │                ┆ when           ┆        │                                 │
+│                   ┆ │                ┆ ras_enable ==  ┆        │                                 │
+│                   ┆ │                ┆ 1              ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ reset_method   ┆ GPU reset      ┆ int    │                                 │
+│                   ┆ │                ┆ method (-1 =   ┆        │                                 │
+│                   ┆ │                ┆ auto           ┆        │                                 │
+│                   ┆ │                ┆ (default), 0 = ┆        │                                 │
+│                   ┆ │                ┆ legacy, 1 =    ┆        │                                 │
+│                   ┆ │                ┆ mode0, 2 =     ┆        │                                 │
+│                   ┆ │                ┆ mode1, 3 =     ┆        │                                 │
+│                   ┆ │                ┆ mode2, 4 =     ┆        │                                 │
+│                   ┆ │                ┆ baco/bamaco)   ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ runpm          ┆ PX runtime pm  ┆ int    │                                 │
+│                   ┆ │                ┆ (2 = force     ┆        │                                 │
+│                   ┆ │                ┆ enable with    ┆        │                                 │
+│                   ┆ │                ┆ BAMACO, 1 =    ┆        │                                 │
+│                   ┆ │                ┆ force enable   ┆        │                                 │
+│                   ┆ │                ┆ with BACO, 0 = ┆        │                                 │
+│                   ┆ │                ┆ disable, -1 =  ┆        │                                 │
+│                   ┆ │                ┆ auto)          ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ sched_hw_submi ┆ the max number ┆ int    │                                 │
+│                   ┆ │ ssion          ┆ of HW          ┆        │                                 │
+│                   ┆ │                ┆ submissions    ┆        │                                 │
+│                   ┆ │                ┆ (default 2)    ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ sched_jobs     ┆ the max number ┆ int    │                                 │
+│                   ┆ │                ┆ of jobs        ┆        │                                 │
+│                   ┆ │                ┆ supported in   ┆        │                                 │
+│                   ┆ │                ┆ the sw queue   ┆        │                                 │
+│                   ┆ │                ┆ (default 32)   ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ sched_policy   ┆ Scheduling     ┆ int    │                                 │
+│                   ┆ │                ┆ policy (0 =    ┆        │                                 │
+│                   ┆ │                ┆ HWS (Default), ┆        │                                 │
+│                   ┆ │                ┆ 1 = HWS        ┆        │                                 │
+│                   ┆ │                ┆ without over-s ┆        │                                 │
+│                   ┆ │                ┆ ubscription, 2 ┆        │                                 │
+│                   ┆ │                ┆ = Non-HWS      ┆        │                                 │
+│                   ┆ │                ┆ (Used for      ┆        │                                 │
+│                   ┆ │                ┆ debugging      ┆        │                                 │
+│                   ┆ │                ┆ only)          ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ sdma_phase_qua ┆ SDMA context   ┆ uint   │                                 │
+│                   ┆ │ ntum           ┆ switch phase   ┆        │                                 │
+│                   ┆ │                ┆ quantum (x 1K  ┆        │                                 │
+│                   ┆ │                ┆ GPU clock      ┆        │                                 │
+│                   ┆ │                ┆ cycles, 0 = no ┆        │                                 │
+│                   ┆ │                ┆ change         ┆        │                                 │
+│                   ┆ │                ┆ (default 32))  ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ send_sigterm   ┆ Send sigterm   ┆ int    │                                 │
+│                   ┆ │                ┆ to HSA process ┆        │                                 │
+│                   ┆ │                ┆ on unhandled   ┆        │                                 │
+│                   ┆ │                ┆ exception (0 = ┆        │                                 │
+│                   ┆ │                ┆ disable, 1 =   ┆        │                                 │
+│                   ┆ │                ┆ enable)        ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ sg_display     ┆ S/G Display    ┆ int    │                                 │
+│                   ┆ │                ┆ (-1 = auto     ┆        │                                 │
+│                   ┆ │                ┆ (default), 0 = ┆        │                                 │
+│                   ┆ │                ┆ disable)       ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ si_support     ┆ SI support (1  ┆ int    │                                 │
+│                   ┆ │                ┆ = enabled, 0 = ┆        │                                 │
+│                   ┆ │                ┆ disabled       ┆        │                                 │
+│                   ┆ │                ┆ (default))     ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ smu_memory_poo ┆ reserve gtt    ┆ uint   │                                 │
+│                   ┆ │ l_size         ┆ for smu debug  ┆        │                                 │
+│                   ┆ │                ┆ usage, 0 =     ┆        │                                 │
+│                   ┆ │                ┆ disable,0x1 =  ┆        │                                 │
+│                   ┆ │                ┆ 256Mbyte, 0x2  ┆        │                                 │
+│                   ┆ │                ┆ = 512Mbyte,    ┆        │                                 │
+│                   ┆ │                ┆ 0x4 = 1 Gbyte, ┆        │                                 │
+│                   ┆ │                ┆ 0x8 = 2GByte   ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ smu_pptable_id ┆ specify        ┆ int    │                                 │
+│                   ┆ │                ┆ pptable id to  ┆        │                                 │
+│                   ┆ │                ┆ be used (-1 =  ┆        │                                 │
+│                   ┆ │                ┆ auto(default)  ┆        │                                 │
+│                   ┆ │                ┆ value, 0 = use ┆        │                                 │
+│                   ┆ │                ┆ pptable from   ┆        │                                 │
+│                   ┆ │                ┆ vbios, > 0 =   ┆        │                                 │
+│                   ┆ │                ┆ soft pptable   ┆        │                                 │
+│                   ┆ │                ┆ id)            ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ timeout_fatal_ ┆ disable        ┆ bool   │                                 │
+│                   ┆ │ disable        ┆ watchdog       ┆        │                                 │
+│                   ┆ │                ┆ timeout fatal  ┆        │                                 │
+│                   ┆ │                ┆ error (false = ┆        │                                 │
+│                   ┆ │                ┆ default)       ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ timeout_period ┆ watchdog       ┆ uint   │                                 │
+│                   ┆ │                ┆ timeout period ┆        │                                 │
+│                   ┆ │                ┆ (0 = timeout   ┆        │                                 │
+│                   ┆ │                ┆ disabled, 1 ~  ┆        │                                 │
+│                   ┆ │                ┆ 0x23 = timeout ┆        │                                 │
+│                   ┆ │                ┆ maxcycles = (1 ┆        │                                 │
+│                   ┆ │                ┆ << period)     ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ tmz            ┆ Enable TMZ     ┆ int    │                                 │
+│                   ┆ │                ┆ feature (-1 =  ┆        │                                 │
+│                   ┆ │                ┆ auto           ┆        │                                 │
+│                   ┆ │                ┆ (default), 0 = ┆        │                                 │
+│                   ┆ │                ┆ off, 1 = on)   ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ use_xgmi_p2p   ┆ Enable XGMI    ┆ int    │                                 │
+│                   ┆ │                ┆ P2P interface  ┆        │                                 │
+│                   ┆ │                ┆ (0 = disable;  ┆        │                                 │
+│                   ┆ │                ┆ 1 = enable     ┆        │                                 │
+│                   ┆ │                ┆ (default))     ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ vcnfw_log      ┆ Enable vcnfw   ┆ int    │                                 │
+│                   ┆ │                ┆ log(0 =        ┆        │                                 │
+│                   ┆ │                ┆ disable        ┆        │                                 │
+│                   ┆ │                ┆ (default       ┆        │                                 │
+│                   ┆ │                ┆ value), 1 =    ┆        │                                 │
+│                   ┆ │                ┆ enable)        ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ virtual_displa ┆ Enable virtual ┆ charp  │                                 │
+│                   ┆ │ y              ┆ display        ┆        │                                 │
+│                   ┆ │                ┆ feature (the   ┆        │                                 │
+│                   ┆ │                ┆ virtual_displa ┆        │                                 │
+│                   ┆ │                ┆ y will be set  ┆        │                                 │
+│                   ┆ │                ┆ like xxxx:xx:x ┆        │                                 │
+│                   ┆ │                ┆ x.x,x;xxxx:xx: ┆        │                                 │
+│                   ┆ │                ┆ xx.x,x)        ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ vis_vramlimit  ┆ Restrict       ┆ int    │                                 │
+│                   ┆ │                ┆ visible VRAM   ┆        │                                 │
+│                   ┆ │                ┆ for testing,   ┆        │                                 │
+│                   ┆ │                ┆ in megabytes   ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ visualconfirm  ┆ Visual confirm ┆ uint   │                                 │
+│                   ┆ │                ┆ (0 = off       ┆        │                                 │
+│                   ┆ │                ┆ (default), 1 = ┆        │                                 │
+│                   ┆ │                ┆ MPO, 5 = PSR)  ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ vm_block_size  ┆ VM page table  ┆ int    │                                 │
+│                   ┆ │                ┆ size in bits   ┆        │                                 │
+│                   ┆ │                ┆ (default       ┆        │                                 │
+│                   ┆ │                ┆ depending on   ┆        │                                 │
+│                   ┆ │                ┆ vm_size)       ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ vm_debug       ┆ Debug VM       ┆ int    │                                 │
+│                   ┆ │                ┆ handling (0 =  ┆        │                                 │
+│                   ┆ │                ┆ disabled       ┆        │                                 │
+│                   ┆ │                ┆ (default), 1 = ┆        │                                 │
+│                   ┆ │                ┆ enabled)       ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ vm_fault_stop  ┆ Stop on VM     ┆ int    │                                 │
+│                   ┆ │                ┆ fault (0 =     ┆        │                                 │
+│                   ┆ │                ┆ never          ┆        │                                 │
+│                   ┆ │                ┆ (default), 1 = ┆        │                                 │
+│                   ┆ │                ┆ print first, 2 ┆        │                                 │
+│                   ┆ │                ┆ = always)      ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ vm_fragment_si ┆ VM fragment    ┆ int    │                                 │
+│                   ┆ │ ze             ┆ size in bits   ┆        │                                 │
+│                   ┆ │                ┆ (4, 5, etc. 4  ┆        │                                 │
+│                   ┆ │                ┆ = 64K          ┆        │                                 │
+│                   ┆ │                ┆ (default), Max ┆        │                                 │
+│                   ┆ │                ┆ 9 = 2M)        ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ vm_size        ┆ VM address     ┆ int    │                                 │
+│                   ┆ │                ┆ space size in  ┆        │                                 │
+│                   ┆ │                ┆ gigabytes      ┆        │                                 │
+│                   ┆ │                ┆ (default 64GB) ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ vm_update_mode ┆ VM update      ┆ int    │                                 │
+│                   ┆ │                ┆ using CPU (0 = ┆        │                                 │
+│                   ┆ │                ┆ never (default ┆        │                                 │
+│                   ┆ │                ┆ except for     ┆        │                                 │
+│                   ┆ │                ┆ large          ┆        │                                 │
+│                   ┆ │                ┆ BAR(LB)), 1 =  ┆        │                                 │
+│                   ┆ │                ┆ Graphics only, ┆        │                                 │
+│                   ┆ │                ┆ 2 = Compute    ┆        │                                 │
+│                   ┆ │                ┆ only (default  ┆        │                                 │
+│                   ┆ │                ┆ for LB), 3 =   ┆        │                                 │
+│                   ┆ │                ┆ Both           ┆        │                                 │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌┤                                 │
+│                   ┆ │ vramlimit      ┆ Restrict VRAM  ┆ int    │                                 │
+│                   ┆ │                ┆ for testing,   ┆        │                                 │
+│                   ┆ │                ┆ in megabytes   ┆        │                                 │
+│                   ┆ ╰────────────────┴────────────────┴────────╯                                 │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ Signature         ┆ true                                                                         │
+╰───────────────────┴──────────────────────────────────────────────────────────────────────────────╯
+
