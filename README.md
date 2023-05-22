@@ -27,8 +27,8 @@ cargo install linux_modules
 ```shell
 $ nms info loop
 ╭───────────────────┬──────────────────────────────────────╮
-│ File              ┆ /lib/modules/5.5.13-arch1-1/kernel/d │
-│                   ┆ rivers/block/loop.ko.xz              │
+│ File              ┆ /lib/modules/6.3.1-arch2-1/kernel/dr │
+│                   ┆ ivers/block/loop.ko.zst              │
 ╞═══════════════════╪══════════════════════════════════════╡
 │ Authors           ┆                                      │
 ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
@@ -54,23 +54,34 @@ $ nms info loop
 ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
 │ Staging           ┆ false                                │
 ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
-│ Version Magic     ┆ 5.5.13-arch1-1 SMP preempt           │
-│                   ┆ mod_unload                           │
+│ Version Magic     ┆ 6.3.1-arch2-1 SMP preempt mod_unload │
 ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
-│ Source Checksum   ┆ 7EB1D1BC035F5C6FD6EE3FD              │
+│ Source Checksum   ┆ B9EBD1F7F134B1C20C5B09B              │
 ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
-│ Parameters        ┆ ╭──────────┬────────────────┬──────╮ │
-│                   ┆ │ Name     ┆ Desc           ┆ Type │ │
-│                   ┆ ╞══════════╪════════════════╪══════╡ │
-│                   ┆ │ max_loop ┆ Maximum number ┆ int  │ │
-│                   ┆ │          ┆ of loop        ┆      │ │
-│                   ┆ │          ┆ devices        ┆      │ │
-│                   ┆ ├╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌┤ │
-│                   ┆ │ max_part ┆ Maximum number ┆ int  │ │
-│                   ┆ │          ┆ of partitions  ┆      │ │
-│                   ┆ │          ┆ per loop       ┆      │ │
-│                   ┆ │          ┆ device         ┆      │ │
-│                   ┆ ╰──────────┴────────────────┴──────╯ │
+│ Parameters        ┆ ╭────────────┬───────────┬─────────╮ │
+│                   ┆ │ Name       ┆ Descripti ┆ Type    │ │
+│                   ┆ │            ┆ on        ┆         │ │
+│                   ┆ ╞════════════╪═══════════╪═════════╡ │
+│                   ┆ │ hw_queue_d ┆ Queue     ┆ Unknown │ │
+│                   ┆ │ epth       ┆ depth for ┆         │ │
+│                   ┆ │            ┆ each      ┆         │ │
+│                   ┆ │            ┆ hardware  ┆         │ │
+│                   ┆ │            ┆ queue.    ┆         │ │
+│                   ┆ │            ┆ Default:  ┆         │ │
+│                   ┆ │            ┆ 128       ┆         │ │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌┤ │
+│                   ┆ │ max_loop   ┆ Maximum   ┆ int     │ │
+│                   ┆ │            ┆ number of ┆         │ │
+│                   ┆ │            ┆ loop      ┆         │ │
+│                   ┆ │            ┆ devices   ┆         │ │
+│                   ┆ ├╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌┤ │
+│                   ┆ │ max_part   ┆ Maximum   ┆ int     │ │
+│                   ┆ │            ┆ number of ┆         │ │
+│                   ┆ │            ┆ partition ┆         │ │
+│                   ┆ │            ┆ s per     ┆         │ │
+│                   ┆ │            ┆ loop      ┆         │ │
+│                   ┆ │            ┆ device    ┆         │ │
+│                   ┆ ╰────────────┴───────────┴─────────╯ │
 ├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
 │ Signature         ┆ true                                 │
 ╰───────────────────┴──────────────────────────────────────╯
