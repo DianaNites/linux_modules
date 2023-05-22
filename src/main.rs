@@ -193,22 +193,21 @@ fn info_module(name: &Path, uname: Option<&str>) -> Result<()> {
 
     table.set_header(&["File".into(), m.path().display().to_string()]);
 
-    table.add_row(["Authors", &info.authors.join("\n")]);
-    table.add_row(["License", &info.license]);
-    table.add_row(["Description", &info.description]);
-    table.add_row(["Version", &info.version]);
-    table.add_row(["Firmware", &info.firmware.join("\n")]);
-    table.add_row(["Alias", &info.alias.join("\n")]);
-    table.add_row(["Dependencies", &info.dependencies.join("\n")]);
-    table.add_row(&[
-        "Soft Dependencies".into(),
-        info.soft_dependencies.join("\n"),
+    table.add_rows([
+        ["Authors", &info.authors.join("\n")],
+        ["License", &info.license],
+        ["Description", &info.description],
+        ["Version", &info.version],
+        ["Firmware", &info.firmware.join("\n")],
+        ["Alias", &info.alias.join("\n")],
+        ["Dependencies", &info.dependencies.join("\n")],
+        ["Soft Dependencies", &info.soft_dependencies.join("\n")],
+        ["In Tree", &info.in_tree.to_string()],
+        ["Retpoline", &info.retpoline.to_string()],
+        ["Staging", &info.staging.to_string()],
+        ["Version Magic", &info.version_magic],
+        ["Source Checksum", &info.source_checksum],
     ]);
-    table.add_row(["In Tree", &info.in_tree.to_string()]);
-    table.add_row(["Retpoline", &info.retpoline.to_string()]);
-    table.add_row(["Staging", &info.staging.to_string()]);
-    table.add_row(["Version Magic", &info.version_magic]);
-    table.add_row(["Source Checksum", &info.source_checksum]);
 
     let mut p_table = create_table()?;
     p_table.set_header(["Name", "Description", "Type"]);
