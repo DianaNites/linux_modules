@@ -25,3 +25,23 @@ fn amdgpu_info() -> Result<()> {
 
     Ok(())
 }
+
+#[test]
+fn help() -> Result<()> {
+    for arg in [
+        &["--help"][..],
+        &["list", "--help"][..],
+        &["insert", "--help"][..],
+        &["remove", "--help"][..],
+        &["info", "--help"][..],
+    ] {
+        let mut cmd = Command::cargo_bin("nms")?;
+        cmd.env_clear().args(arg);
+        let out = cmd.output()?;
+        let out = from_utf8(&out.stdout)?;
+
+        assert_snapshot!(out);
+    }
+
+    Ok(())
+}

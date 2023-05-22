@@ -1,0 +1,29 @@
+---
+source: tests/ui.rs
+expression: out
+---
+nms-info 0.3.3-alpha.0
+Get information on a kernel module
+
+USAGE:
+    nms info [OPTIONS] <module>
+
+FLAGS:
+    -h, --help    
+            Prints help information
+
+
+OPTIONS:
+    -u, --uname <uname>    
+            Uname to use instead of the current one.
+            
+            This may be required if you want information on modules regarding a kernel other than the one currently
+            running.
+            
+            Alternatively the full path to the module may be specified.
+
+ARGS:
+    <module>    
+            Name of the module, or a path to one
+
+

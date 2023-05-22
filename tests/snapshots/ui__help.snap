@@ -1,0 +1,21 @@
+---
+source: tests/ui.rs
+expression: out
+---
+linux_modules 0.3.3-alpha.0
+Manage Linux Kernel Modules
+
+USAGE:
+    nms <name> -q
+    nms <SUBCOMMAND>
+
+FLAGS:
+    -h, --help       Prints help information
+    -V, --version    Prints version information
+
+SUBCOMMANDS:
+    info      Get information on a kernel module
+    insert    Load a kernel module
+    list      List loaded kernel modules
+    remove    Remove/unload a kernel module
+

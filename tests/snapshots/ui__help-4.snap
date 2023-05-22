@@ -1,0 +1,27 @@
+---
+source: tests/ui.rs
+expression: out
+---
+nms-remove 0.3.3-alpha.0
+Remove/unload a kernel module
+
+USAGE:
+    nms remove [FLAGS] <name>
+
+FLAGS:
+    -f, --force    
+            Force unload the module.
+            
+            This is extremely dangerous and can cause serious system instability. Not all modules are designed to be
+            unloaded, and this can cause a module currently being used to be unloaded.
+            
+            USE AT YOUR OWN RISK
+    -h, --help     
+            Prints help information
+
+
+ARGS:
+    <name>    
+            Name of the module to unload
+
+

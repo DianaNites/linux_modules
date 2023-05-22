@@ -1,0 +1,29 @@
+---
+source: tests/ui.rs
+expression: out
+---
+nms-insert 0.3.3-alpha.0
+Load a kernel module
+
+USAGE:
+    nms insert [FLAGS] <module>
+
+FLAGS:
+    -f, --force    
+            Force load the module.
+            
+            This ignores important kernel compatibility checks.
+            
+            USE AT YOUR OWN RISK
+    -h, --help     
+            Prints help information
+
+
+ARGS:
+    <module>    
+            Path to file, or module name.
+            
+            If this is a full path, that file is loaded directly.
+            
+            If a module name, `lib/modules/(uname -r)` will be searched.
+
