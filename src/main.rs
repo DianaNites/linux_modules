@@ -15,13 +15,7 @@ static TERM_WIDTH: OnceCell<u16> = OnceCell::new();
 #[derive(Debug, Parser)]
 enum Commands {
     /// List loaded kernel modules
-    List {
-        // Even though subcommands are supposed to count as arguments?
-        // With `ArgRequiredElseHelp`, `nms list` just displays help,
-        // so add a dummy default value
-        #[clap(hide(true), default_value("0"))]
-        _hidden_clap_oddity: u8,
-    },
+    List {},
 
     /// Load a kernel module
     Insert {
