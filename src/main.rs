@@ -252,6 +252,16 @@ fn info_module(name: &Path, uname: Option<&str>) -> Result<()> {
             sig.pop();
 
             sig_table.add_row(["Issuer", &signer.issuer()]);
+            sig_table.add_row(["Public Key ID", &signer.issuer()]);
+            sig_table.add_row(["Public Key", &{
+                let mut key = String::new();
+                for b in signer.public_key() {
+                    key.push_str(&format!("{b:02X}:"));
+                }
+                // Pop extra :
+                key.pop();
+                key
+            }]);
             sig_table.add_row(["Hash", &signer.hash().to_string()]);
             // TODO: Wrap not on `:`
             sig_table.add_row(["Bytes", &sig]);
