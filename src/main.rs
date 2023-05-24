@@ -8,7 +8,7 @@ use anyhow::{Context, Result};
 use clap::{CommandFactory, Parser, ValueHint};
 use clap_complete::Shell;
 use comfy_table::{modifiers::UTF8_ROUND_CORNERS, presets::UTF8_FULL, ContentArrangement, Table};
-use linapi::system::modules::{LoadedModule, ModuleFile};
+use linapi::{module_::Module, module_file::ModuleFile};
 use once_cell::sync::OnceCell;
 
 static TERM_WIDTH: OnceCell<u16> = OnceCell::new();
@@ -134,12 +134,12 @@ fn list_modules() -> Result<()> {
     let mut table = create_table()?;
     table.set_header(["Module", "Size (Bytes)", "References", "Used By"]);
 
-    for m in LoadedModule::get_loaded()? {
+    for m in Module::loaded()? {
         table.add_row([
             m.name(),
-            &m.size().to_string(),
-            &m.ref_count().unwrap().to_string(),
-            &m.holders()
+            &m.core_size()?.to_string(),
+            &m.ref_count()?.to_string(),
+            &m.holders()?
                 .iter()
                 .map(|m| m.name())
                 .collect::<Vec<_>>()
@@ -167,7 +167,7 @@ fn remove_module(name: &str, force: bool) -> Result<()> {
         name.replace('-', "_"),
         name.replace('_', "-"),
     ] {
-        let m = match LoadedModule::from_name(name) {
+        let m = match Module::from_name(name) {
             Ok(m) => m,
             Err(_) => continue,
         };
@@ -186,6 +186,7 @@ fn info_module(name: &Path, uname: Option<&str>) -> Result<()> {
     let m = get_module(name, uname)?;
     pager::Pager::with_default_pager("less").setup();
     let info = m.info();
+    // dbg!(&info);
     // FIXME: amdgpu dependencies are comma separated single string?
     // Bug in linapi? kernel oddity?
     // panic!("{:?}", &info.dependencies);
@@ -193,19 +194,19 @@ fn info_module(name: &Path, uname: Option<&str>) -> Result<()> {
     table.set_header(&["File".into(), m.path().display().to_string()]);
 
     table.add_rows([
-        ["Authors", &info.authors.join("\n")],
-        ["License", &info.license],
-        ["Description", &info.description],
-        ["Version", &info.version],
-        ["Firmware", &info.firmware.join("\n")],
-        ["Alias", &info.alias.join("\n")],
-        ["Dependencies", &info.dependencies.join("\n")],
-        ["Soft Dependencies", &info.soft_dependencies.join("\n")],
-        ["In Tree", &info.in_tree.to_string()],
-        ["Retpoline", &info.retpoline.to_string()],
-        ["Staging", &info.staging.to_string()],
-        ["Version Magic", &info.version_magic],
-        ["Source Checksum", &info.source_checksum],
+        ["Authors", &info.authors().join("\n")],
+        ["License", (info.license())],
+        ["Description", (info.description())],
+        ["Version", (info.version())],
+        ["Firmware", &info.firmware().join("\n")],
+        ["Alias", &info.alias().join("\n")],
+        ["Dependencies", &info.dependencies().join("\n")],
+        ["Soft Dependencies", &info.soft_dependencies().join("\n")],
+        ["In Tree", &info.in_tree().to_string()],
+        ["Retpoline", &info.retpoline().to_string()],
+        ["Staging", &info.staging().to_string()],
+        ["Version Magic", (info.version_magic())],
+        ["Source Checksum", (info.source_checksum())],
     ]);
 
     let mut p_table = create_table()?;
@@ -216,22 +217,20 @@ fn info_module(name: &Path, uname: Option<&str>) -> Result<()> {
     // Plus 1 for our own padding, for a total of 7.
     p_table.set_width(table.width().unwrap() - table.column_max_content_widths()[0] - 7);
 
-    let mut parameters = info.parameters.clone();
-    parameters.sort_unstable_by(|a, b| a.name.cmp(&b.name));
+    let mut parameters = info.parameters().to_vec();
+    parameters.sort_by(|a, b| a.name().cmp(b.name()));
     for p in parameters {
-        let desc = p
-            .description
-            .as_ref()
-            .map(|s| s.replace('\t', "    "))
-            .unwrap_or_else(|| "None".into());
-        p_table.add_row(&[p.name.clone(), desc, p.type_.clone()]);
+        // let desc = p.description().replace('\t', "    ");
+        let desc = p.description().to_owned();
+        p_table.add_row([p.name().to_owned(), desc, p.ty().to_string()]);
     }
-    if info.parameters.is_empty() {
+    if info.parameters().is_empty() {
         table.add_row(["Parameters", "None"]);
     } else {
         table.add_row(["Parameters", &p_table.to_string()]);
     }
-    table.add_row(["Signature", &m.has_signature().to_string()]);
+    // table.add_row(["Signature", &m.has_signature().to_string()]);
+    table.add_row(["Signature", "OOP"]);
 
     let _ = writeln!(stdout(), "{}", table);
     Ok(())
