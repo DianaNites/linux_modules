@@ -235,8 +235,36 @@ fn info_module(name: &Path, uname: Option<&str>) -> Result<()> {
     } else {
         table.add_row(["Parameters", &p_table.to_string()]);
     }
-    // table.add_row(["Signature", &m.has_signature().to_string()]);
-    table.add_row(["Signature", "OOP"]);
+
+    let mut sig_table = create_table()?;
+    sig_table.set_width(max_width);
+
+    let m_sig = m.info().signature();
+
+    if let Some(s) = m_sig {
+        let mut sig = String::new();
+        for signer in s.signers() {
+            for b in signer.signature() {
+                sig.push_str(&format!("{b:02X}:"));
+            }
+
+            // Pop extra :
+            sig.pop();
+
+            sig_table.add_row(["Issuer", &signer.issuer()]);
+            sig_table.add_row(["Hash", &signer.hash().to_string()]);
+            // TODO: Wrap not on `:`
+            sig_table.add_row(["Bytes", &sig]);
+
+            sig.clear();
+        }
+    }
+
+    if m_sig.map(|f| f.signers().count()).unwrap_or_default() > 1 {
+        table.add_row(["Signatures", &sig_table.to_string()]);
+    } else {
+        table.add_row(["Signature", &sig_table.to_string()]);
+    }
 
     let _ = writeln!(stdout(), "{}", table);
     Ok(())
