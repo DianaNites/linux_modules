@@ -212,10 +212,16 @@ fn info_module(name: &Path, uname: Option<&str>) -> Result<()> {
     let mut p_table = create_table()?;
     p_table.set_header(["Name", "Description", "Type"]);
 
+    let max_width = table
+        .width()
+        .unwrap()
+        .saturating_sub(table.column_max_content_widths()[0])
+        .saturating_sub(7);
+
     // Max width of `tables` contents before we add params
     // 6 Is how many characters, including padding, the first column borders take.
     // Plus 1 for our own padding, for a total of 7.
-    p_table.set_width(table.width().unwrap() - table.column_max_content_widths()[0] - 7);
+    p_table.set_width(max_width);
 
     let mut parameters = info.parameters().to_vec();
     parameters.sort_by(|a, b| a.name().cmp(b.name()));
