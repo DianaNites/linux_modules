@@ -9,6 +9,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] - ReleaseDate
 
+### Added
+
+- WIP Module signature support
+- Dash and underscore equivalence in module names
+
+### Fixed
+
+- Many `.modinfo` parsing bugs
+
+### Changed
+
+- Updated `linapi`
+
 ## [0.3.6] - 2023-05-22
 
 ### Fixed
