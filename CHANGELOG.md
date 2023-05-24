@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - WIP Module signature support
 - Dash and underscore equivalence in module names
+- Improved module parameter type information
 
 ### Fixed
 
