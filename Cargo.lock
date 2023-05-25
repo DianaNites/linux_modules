@@ -462,7 +462,7 @@ checksum = "ef53942eb7bf7ff43a617b3e2c1c4a5ecf5944a7c1bc12d7ee39bbb15e5c1519"
 
 [[package]]
 name = "linux_modules"
-version = "0.3.6"
+version = "0.3.7"
 dependencies = [
  "anyhow",
  "assert_cmd",
