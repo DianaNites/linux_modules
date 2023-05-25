@@ -202,6 +202,7 @@ fn info_module(name: &Path, uname: Option<&str>) -> Result<()> {
         ["Alias", &info.alias().join("\n")],
         ["Dependencies", &info.dependencies().join("\n")],
         ["Soft Dependencies", &info.soft_dependencies().join("\n")],
+        ["Imports", &info.imports().join("\n")],
         ["In Tree", &info.in_tree().to_string()],
         ["Retpoline", &info.retpoline().to_string()],
         ["Staging", &info.staging().to_string()],
@@ -231,7 +232,7 @@ fn info_module(name: &Path, uname: Option<&str>) -> Result<()> {
         p_table.add_row([p.name().to_owned(), desc, p.ty().to_string()]);
     }
     if info.parameters().is_empty() {
-        table.add_row(["Parameters", "None"]);
+        table.add_row(["Parameters", ""]);
     } else {
         table.add_row(["Parameters", &p_table.to_string()]);
     }
@@ -252,8 +253,7 @@ fn info_module(name: &Path, uname: Option<&str>) -> Result<()> {
             sig.pop();
 
             sig_table.add_row(["Issuer", &signer.issuer()]);
-            sig_table.add_row(["Public Key ID", &signer.issuer()]);
-            sig_table.add_row(["Public Key", &{
+            sig_table.add_row(["Key", &{
                 let mut key = String::new();
                 for b in signer.public_key() {
                     key.push_str(&format!("{b:02X}:"));
@@ -264,16 +264,16 @@ fn info_module(name: &Path, uname: Option<&str>) -> Result<()> {
             }]);
             sig_table.add_row(["Hash", &signer.hash().to_string()]);
             // TODO: Wrap not on `:`
-            sig_table.add_row(["Bytes", &sig]);
+            sig_table.add_row(["Signature", &sig]);
 
             sig.clear();
         }
     }
 
     if m_sig.map(|f| f.signers().count()).unwrap_or_default() > 1 {
-        table.add_row(["Signatures", &sig_table.to_string()]);
+        table.add_row(["Certificates", &sig_table.to_string()]);
     } else {
-        table.add_row(["Signature", &sig_table.to_string()]);
+        table.add_row(["Certificate", &sig_table.to_string()]);
     }
 
     let _ = writeln!(stdout(), "{}", table);
