@@ -11,7 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- WIP Module signature support
+- Module signature support
+- Module namespace support
 - Dash and underscore equivalence in module names
 - Improved module parameter type information
 
