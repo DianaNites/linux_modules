@@ -8,7 +8,7 @@ use anyhow::{Context, Result};
 use clap::{CommandFactory, Parser, ValueHint};
 use clap_complete::Shell;
 use comfy_table::{modifiers::UTF8_ROUND_CORNERS, presets::UTF8_FULL, ContentArrangement, Table};
-use linapi::{module_::Module, module_file::ModuleFile};
+use linapi::{module::Module, module_file::ModuleFile};
 use once_cell::sync::OnceCell;
 
 static TERM_WIDTH: OnceCell<u16> = OnceCell::new();
