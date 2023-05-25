@@ -9,9 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] - ReleaseDate
 
-## [0.4.0] - 2023-05-25
+### Fixed
 
-## [0.3.7] - 2023-05-25
+- Readme
+
+## [0.4.0] - 2023-05-25
 
 ### Added
 
@@ -214,9 +216,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - CLI Interface for adding, removing listing, and getting information on modules.
 
 <!-- next-url -->
-[Unreleased]: https://github.com/DianaNites/linux_modules/compare/v0.4.0...HEAD
-[0.4.0]: https://github.com/DianaNites/linux_modules/compare/v0.3.7...v0.4.0
-[0.3.7]: https://github.com/DianaNites/linux_modules/compare/v0.3.6...v0.3.7
+[Unreleased]: https://github.com/DianaNites/linux_modules/compare/v0.4.1...HEAD
+[0.4.0]: https://github.com/DianaNites/linux_modules/compare/v0.3.6...v0.4.0
 [0.3.6]: https://github.com/DianaNites/linux_modules/compare/v0.3.5...v0.3.6
 [0.3.5]: https://github.com/DianaNites/linux_modules/compare/v0.3.4...v0.3.5
 [0.3.4]: https://github.com/DianaNites/linux_modules/compare/v0.3.3...v0.3.4
