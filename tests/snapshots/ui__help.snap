@@ -2,7 +2,7 @@
 source: tests/ui.rs
 expression: out
 ---
-linux_modules 0.4.0
+linux_modules 0.4.1
 Manage Linux Kernel Modules
 
 USAGE:
